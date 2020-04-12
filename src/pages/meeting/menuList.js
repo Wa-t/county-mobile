@@ -7,7 +7,7 @@ const menus = [
   {
     id: 2,
     title: '政网哨',
-    path: '/pass/platform/2'
+    path: '/meeting?tag=政网哨'
   },
   {
     id: 3,

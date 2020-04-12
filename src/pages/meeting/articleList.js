@@ -2,25 +2,25 @@ import bg from '../../assets/images/articleBg.png'
 
 const articleList = [
     {
-        title: '如果你还想做自媒体',
+        title: 'XXXXXXXXXXXXXXXXXXXXX',
         href: '',
         image: bg,
         tag: '政会通',
-        content: '内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个没有专注某一领域的内容，最终的结果就是浪费了很多时间和精,内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个，没有专注某一领域的内容，最终的结果就是浪费了很多时间和精...'
+        content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX...'
     },
     {
-        title: '如果你还想做自媒体XXXXXXXXXXXX',
+        title: 'XXXXXXXXXXXXXXXXXXXXX',
         href: '',
         image: bg,
         tag: '政会通',
-        content: '内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个，没有专注某一领域的内容，最终的结果就是浪费了很多时间和精,内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个，没有专注某一领域的内容，最终的结果就是浪费了很多时间和精...'
+        content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX...'
     },
     {
-        title: '如果你还想做自媒体XXXXXXXXXXXX',
+        title: 'XXXXXXXXXXXXXXXXXXXXX',
         href: '',
         image: bg,
         tag: '政会通',
-        content: '内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个，没有专注某一领域的内容，最终的结果就是浪费了很多时间和精,内容定位 如果你在准备做自媒体的时候，没有想好自己要做的内容，而是东做一个西做一个，没有专注某一领域的内容，最终的结果就是浪费了很多时间和精...'
+        content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX...'
     }
 ]
 

@@ -7,7 +7,7 @@ const menus = [
   {
     id: 2,
     title: '榜单发布',
-    url: '#'
+    path: '/reportPublish'
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const menus = [
   {
     id: 6,
     title: '榜单总表',
-    url: '#'
+    path: '/reportList'
   }
 ]
 

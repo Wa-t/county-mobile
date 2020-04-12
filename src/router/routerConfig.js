@@ -4,7 +4,8 @@ import HundredCounty from '../pages/hundred';
 import Channel from '../pages/channel';
 import Pass from '../pages/pass';
 import Meeting from '../pages/meeting';
-
+import ReportList from '../pages/reportList';
+import ReportPublish from '../pages/reportPublish';
 // import Platform from '../pages/pass/platform';
 
 const routes = [
@@ -51,6 +52,17 @@ const routes = [
     component: Meeting,
     name: '政会通'
   },
+  {
+    path: '/reportList',
+    component: ReportList,
+    name: '榜单总表'
+  },
+  {
+    path: '/reportPublish',
+    component: ReportPublish,
+    name: '榜单总表'
+  },
+  
   // {
   //   path: '/age3',
   //   component: null,

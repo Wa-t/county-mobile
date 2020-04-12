@@ -17,7 +17,6 @@ class Intro extends Component {
           {menus.map(menu => (
             <li key={menu.id}>
               <a href={menu.url} onClick={(e) => {
-                console.log(menu.path)
                 if(menu.path) {
                   this.props.history.push(menu.path)
                   e.preventDefault()
