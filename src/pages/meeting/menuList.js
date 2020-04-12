@@ -12,22 +12,22 @@ const menus = [
   {
     id: 3,
     title: '政讯报',
-    path: '/pass/platform/3'
+    path: '/meeting?tag=政讯报'
   },
   {
     id: 4,
     title: '政云桥',
-    path: '/pass/platform/4'
+    path: '/meeting?tag=政云桥'
   },
   {
     id: 5,
     title: '微讯社',
-    path: '/pass/platform/5'
+    path: '/meeting?tag=微讯社'
   },
   {
     id: 6,
     title: '小康优选',
-    path: '/pass/platform/6'
+    path: '/meeting?tag=小康优选'
   }
 ]
 

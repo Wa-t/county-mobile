@@ -7,38 +7,28 @@ const menus = [
   {
     id: 2,
     title: '政网哨',
-    path: '/pass/platform/2'
+    path: '/meeting?tag=政网哨'
   },
   {
     id: 3,
     title: '政讯报',
-    path: '/pass/platform/3'
+    path: '/meeting?tag=政讯报'
   },
   {
     id: 4,
     title: '政云桥',
-    path: '/pass/platform/4'
+    path: '/meeting?tag=政云桥'
   },
   {
     id: 5,
     title: '微讯社',
-    path: '/pass/platform/5'
+    path: '/meeting?tag=微讯社'
   },
   {
     id: 6,
     title: '小康优选',
-    path: '/pass/platform/6'
-  },
-  // {
-  //   id: 7,
-  //   title: '卡乐图片',
-  //   path: '/pass/platform/7'
-  // },
-  // {
-  //   id: 8,
-  //   title: '圆点直播',
-  //   path: '/pass/platform/8'
-  // }
+    path: '/meeting?tag=小康优选'
+  }
 ]
 
 export {

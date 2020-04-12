@@ -27,7 +27,7 @@ const menus = [
   {
     id: 6,
     title: '小康优选',
-    url: '#'
+    path: '/meeting?tag=小康优选'
   }
 ]
 
