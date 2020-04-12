@@ -7,7 +7,7 @@ const menus = [
   {
     id: 2,
     title: '郡县专栏',
-    url: '#'
+    path: '/channel?tag=郡县专栏'
   },
   {
     id: 3,

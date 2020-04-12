@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Flex, Carousel } from 'antd-mobile';
+import { Flex } from 'antd-mobile';
 import Header from '../../component/Header';
 import entry_01 from '../../assets/images/entry_01.png';
 import Copyright from '../../component/Copyright';

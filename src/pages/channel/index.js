@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Flex, Carousel } from 'antd-mobile';
 import Header from '../../component/Header';
 import entry_01 from '../../assets/images/banner_02.png';
-import logo from '../../assets/images/logo-channel.jpg';
 import Intro from '../../component/Intro';
 import Copyright from '../../component/Copyright';
 import topicList from './topicList';
 import { menus } from './menuList';
+import {getSearchParams} from '../../utils'
 import './index.less';
 
 const siderBar = [
@@ -27,6 +27,8 @@ export default class Hundred extends Component {
     imgHeight: 210,
   }
   renderCarouselPanel() {
+    const params = getSearchParams();
+    const { tag } = params;
     return (
       <Carousel
         className="carousel-container"
@@ -43,7 +45,7 @@ export default class Hundred extends Component {
             href="http://www.alipay.com"
             style={{ height: this.state.imgHeight }}
           >
-            <h4>县域联播</h4>
+            <h4 className="title right">{tag || '县域联播'}</h4>
             <video 
               style={{ width: '100%', height: '100%', background: '#000',verticalAlign: 'top' }}
               controls
@@ -62,13 +64,15 @@ export default class Hundred extends Component {
   }
 
   renderTopic() {
+    const params = getSearchParams();
+    const { tag } = params;
     return (
       <ul className="topic-list">
         {
           topicList.map((topic, index) => {
             return (
               <li key={index}>
-                <h4 className={`title ${index % 2 === 0 ? 'left' : 'right'}`}>{topic.title}</h4>
+                <h4 className={`title ${index % 2 === 0 ? 'left' : 'right'}`}>{tag || topic.title}</h4>
                 <img src={topic.image} alt={topic.title} />
               </li>
             )
