@@ -8,7 +8,6 @@ const getSearchParams = (url) => {
       var val = decodeURIComponent($2);
       val = String(val);
       obj[name] = val;
-      console.log(rs);
   });
   return obj;
 }

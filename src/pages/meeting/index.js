@@ -21,7 +21,7 @@ export default class Hundred extends Component {
       >
         <Header />
         <div className="page-content">
-          <Intro menus={menus} bgUrl={entry_01} title="政会通"/>
+        <Intro menus={menus} bgUrl={entry_01} title="郡县通" desc="县域赋能产品中心" />
           <div className="meeting-content">
             <ul className="article-list">
               {

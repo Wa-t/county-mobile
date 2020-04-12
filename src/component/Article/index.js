@@ -8,7 +8,6 @@ class Article extends Component {
     const {
       match: { params },
     } = this.props;
-    console.log(params);
     return (
       <div className="article-container">
         {parseInt(params.id) === 1 ? (

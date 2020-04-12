@@ -27,8 +27,6 @@ export default class Hundred extends Component {
     imgHeight: 210,
   }
   renderCarouselPanel() {
-    const params = getSearchParams();
-    const { tag } = params;
     return (
       <Carousel
         className="carousel-container"
@@ -45,7 +43,7 @@ export default class Hundred extends Component {
             href="http://www.alipay.com"
             style={{ height: this.state.imgHeight }}
           >
-            <h4 className="title right">{tag || '县域联播'}</h4>
+            <h4 className="title right">{'县域联播'}</h4>
             <video 
               style={{ width: '100%', height: '100%', background: '#000',verticalAlign: 'top' }}
               controls
@@ -66,10 +64,11 @@ export default class Hundred extends Component {
   renderTopic() {
     const params = getSearchParams();
     const { tag } = params;
+    const list = tag ? [...topicList, ...topicList] : topicList
     return (
       <ul className="topic-list">
         {
-          topicList.map((topic, index) => {
+          list.map((topic, index) => {
             return (
               <li key={index}>
                 <h4 className={`title ${index % 2 === 0 ? 'left' : 'right'}`}>{tag || topic.title}</h4>
@@ -83,6 +82,8 @@ export default class Hundred extends Component {
   }
 
   render() {
+    const params = getSearchParams();
+    const { tag } = params;
     return (
       <Flex
         direction="column"
@@ -92,7 +93,7 @@ export default class Hundred extends Component {
         <div className="page-content">
           <Intro menus={menus} bgUrl={entry_01} title="郡县号" desc="县域民生视频引擎" />
           <div className="channel-content">
-            {this.renderCarouselPanel()}
+            {!tag ? this.renderCarouselPanel() : '' }
             {this.renderTopic()}
           </div>
           <Copyright />

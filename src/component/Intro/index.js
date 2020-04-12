@@ -5,8 +5,6 @@ import './index.less';
 
 class Intro extends Component {
   render() {
-    const params = getSearchParams();
-    const { tag } = params;
 
     const { menus, title, bgUrl, desc = "" } = this.props;
     const cardStyle = {
@@ -15,7 +13,7 @@ class Intro extends Component {
     return (
       <header className="intro" style={cardStyle}>
         <span className="desc">{desc}</span>
-        <span className="title">{tag || title}</span>
+        <span className="title">{title}</span>
         <ul className="menu-list">
           {menus.map(menu => (
             <li key={menu.id}>
