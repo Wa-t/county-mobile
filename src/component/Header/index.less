@@ -1,0 +1,212 @@
+@import '../../style/default.less';
+
+.user-state-control {
+  position: absolute;
+  display: flex;
+  z-index: 999;
+  justify-content: space-between;
+  align-items: center;
+  background-color: @ColorA;
+  width: 100%;
+  left: 0;
+  padding: 0 4%;
+  color: @ColorF;
+  font-size: @fontA;
+  height: 28px;
+
+  .button-group {
+    display: flex;
+
+    .state-control-btn {
+      border: unset !important;
+      border-radius: 2px;
+      height: 16px;
+      line-height: 16px;
+      padding: 0 5px;
+      color: @ColorF;
+
+      &::before {
+        border: unset !important;
+      }
+
+      &:first-child {
+        border-right: 1px solid @ColorF !important;
+      }
+    }
+  }
+}
+
+.header-slogan {
+  position: absolute;
+  display: flex;
+  z-index: 999;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  padding: 1.5% 4%;
+  margin-top: 28px;
+  border-bottom: 1px solid @ColorE;
+  background: #fff;
+
+  .logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .search-bar {
+    border: 1px solid @ColorD;
+    border-radius: 50px;
+    overflow: hidden;
+
+    .am-input-item {
+      min-height: 30px;
+      height: 30px;
+
+      .am-input-control {
+
+        input {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    height: 30px;
+
+    .iconfont {
+      font-size: 18px;
+    }
+
+    &::before {
+      border: none !important;
+    }
+  }
+
+  .slogan {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    float: left;
+    font-weight: bold;
+
+    div {
+      display: inline-block;
+    }
+
+    div:first-child {
+      position: relative;
+      font-size: @fontJ;
+      line-height: 32px;
+      white-space: nowrap;
+      margin-right: 10px;
+      padding-right: 10px;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 2px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(180deg, rgba(241,240,245,0.2) 0%, rgba(7,7,8,1) 45%, rgba(16,16,17,1) 55%, rgba(241,244,245,0.2) 100%);
+      }
+    }
+
+    img:first-child {
+      height: 60px;
+    }
+
+    p {
+      margin: 0;
+      line-height: 20px;
+      white-space: nowrap;
+      font-size: @fontC;
+
+      .highlight {
+        color: @ColorD;
+      }
+    }
+    .qrcode {
+      width: 80px;
+      height: 80px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '郡县网二维码';
+      text-align: right;
+      width: 90px;
+      height: 26px;
+      bottom: 0;
+      right: 0;
+      padding-right: 5px;
+      font-size: @fontA;
+    }
+  }
+  .sub-menu {
+    .am-list-line {
+      .am-list-content {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.my-drawer {
+  position: absolute;
+  z-index: 999;
+  top: 44px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 72px);
+  -webkit-overflow-scrolling: touch;
+}
+.my-drawer .am-drawer-sidebar {
+  width: 100vw;
+  background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.my-drawer .am-drawer-sidebar .am-list {
+  width: 100vw;
+  padding: 0;
+}
+.am-accordion .am-accordion-item .am-accordion-header:first-child {
+  border-top: 1PX solid #f4f4f4;
+}
+.no-drawer{
+  left: 100vw;
+}
+
+@media screen and (max-width: 1050px) {
+
+  .header-slogan {
+    .qrcode {
+      display: none;
+    }
+
+    .slogan {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  // .header-slogan {
+  //   .logo {
+  //     display: none;
+  //   }
+  // }
+}
+
+

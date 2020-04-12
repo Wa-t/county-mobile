@@ -1,0 +1,44 @@
+{
+  "id": "1705321",
+  "name": "county",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "513184",
+      "name": "menu",
+      "font_class": "custom-menu",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "5810211",
+      "name": "home",
+      "font_class": "home1",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "648969",
+      "name": "LC_icon_list_line_15",
+      "font_class": "circle",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "2127187",
+      "name": "账号管理",
+      "font_class": "zhanghaoguanli",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "1546594",
+      "name": "通过",
+      "font_class": "tongguo",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    }
+  ]
+}

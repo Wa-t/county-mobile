@@ -1,0 +1,97 @@
+@import '../../style/default.less';
+
+.page-content {
+  .carousel-container {
+    // height: 150px !important;
+    
+  }
+  .submenu-list {
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap:10px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    // background: url(../../assets/images/banner_01.png) no-repeat center/cover;
+    background: linear-gradient(rgb(209, 232, 250), rgb(255,255,255));
+    li {
+      margin: 0 auto;
+      width: 20vw;
+      .pic{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1vw;
+        width: 20vw;
+        height: 20vw;
+        overflow: hidden;
+        // border: 5px solid rgba(184, 219, 254, 0.902);
+        border: 2px solid #000;
+        border-radius: 50%;
+        font-size: 14px;
+        line-height: 1.2;
+        color: #000;
+        // background: linear-gradient(180deg, rgba(241,240,245,0.2) 0%, rgba(57,177,236,1) 0%, rgba(35,96,245,1) 100%, rgba(241,244,245,0.2) 100%);
+        background: #fff;
+        font-family: myFont_01;
+      }
+      .menu-desc {
+        width: 50px;
+        margin: auto;
+        color: rgb(82, 82, 82);
+        font-size: 12px;
+      }
+    }
+  }
+  .about-list{
+    padding: 0 10px;
+    font-size: 16px;
+    overflow: hidden;
+    section{
+      border-radius: 5px;
+      border:1px solid #ccc;
+      background: #fff;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    h4{
+      line-height: 2;
+      text-align: center;
+      color: #1B63DA;
+      background: rgb(212, 234, 248);
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 4px;
+    }
+    p{
+      padding: 0 8px;
+      text-indent: 2em;
+      line-height: @LineHeightA;
+      color: @ColorN;
+    }
+    
+  }
+  .switch-btn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    font-weight: 100;
+    background-color: rgba(230, 231, 234, 0.17);
+    color: #C3CEE7;
+    top: 120px;
+    padding-bottom: 5px;
+    z-index: 10;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 16px;
+    margin: auto;
+    &.prev {
+      left: 10%;
+      padding-right: 2px;
+    }
+    &.next {
+      right: -75%;
+      // padding-left: 2px;
+    }
+  }
+}
