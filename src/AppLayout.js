@@ -19,11 +19,11 @@ class AppLayout extends Component {
           <NavBar />
         </Flex.Item> */}
         <Flex.Item className="app-content">
-          <PrimaryRouter {...this.props}/>
+          <PrimaryRouter {...this.props} />
         </Flex.Item>
-        <Flex.Item className="app-tabBar">
+        {/* <Flex.Item className="app-tabBar">
           <TabBar {...this.props} />
-        </Flex.Item>
+        </Flex.Item> */}
       </Flex>
     )
   }

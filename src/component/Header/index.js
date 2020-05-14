@@ -2,14 +2,82 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Drawer, Accordion, List, Button, Icon, InputItem } from 'antd-mobile';
 import logo from '../../assets/images/logo.png';
-import qrcode from '../../assets/images/qrcode.png';
-import slogan from '../../assets/images/icon-slogan.gif';
+import firstMenu from '../../assets/images/firstMenu.png';
+import secondMenu from '../../assets/images/secondMenu.png';
+
+
 import './index.less';
+
+const menu = [
+  {
+    name: '百县榜',
+    path: '/hundred'
+  },
+  {
+    name: '郡县号',
+    path: '/channel'
+  },
+  {
+    name: '郡县通',
+    path: '/pass'
+  },
+  {
+    name: '县域联播',
+    path: 'http://xianyu.chinaxiaokang.com/map.html',
+    isOut: true,
+  },
+  {
+    name: '百县工程',
+    path: 'http://www.chinaxiaokang.com/xianyu/xiaokangbaixiangongcheng/',
+    isOut: true,
+  },
+  {
+    name: '中国小康指数',
+    path: 'http://www.chinaxiaokang.com/zhongguoxiaokangzhishu/',
+    isOut: true,
+  },
+  {
+    name: '中国小康网',
+    path: '/http://www.chinaxiaokang.com/',
+    isOut: true,
+  },
+  {
+    name: '关于我们',
+    path: '/',
+    isSecond: true,
+  },
+  {
+    name: '客服中心',
+    path: '/',
+    isSecond: true,
+  },
+  {
+    name: '会员中心',
+    path: '/',
+    isSecond: true,
+  },
+  {
+    name: '榜单合作',
+    path: '/',
+    isSecond: true,
+  },
+]
 
 class Header extends Component {
   state = {
     open: false,
+    nowPage: ''
   }
+
+  componentDidMount() {
+    const { location } = this.props;
+    const { pathname } = location;
+    this.setState({
+      nowPage: pathname.split('/')[1]
+    })
+    this.autoFocusInst.focus()
+  }
+
   onOpenChange = (...args) => {
     this.setState({ open: !this.state.open });
   }
@@ -18,39 +86,63 @@ class Header extends Component {
     this.props.history.push('/')
   }
 
-  renderSideBar () {
-    const {menu = []} = this.props
+  renderSideBar() {
     return (
       <div>
-        {menu.map((i, index) => {
-          if(i.subMenu) {
-            return (
-              <Accordion key={index}>
-                <Accordion.Panel header={i.name}>
-                  <List>
-                  {i.subMenu.map((s, index2) => {return (
-                    <List.Item className="sub-menu" key={index2}>{s.name}</List.Item>
-                  )})}
-                  </List> 
-                </Accordion.Panel>
-              </Accordion>
-            )
+        {menu.map((item, index) => {
+          // if (i.subMenu) {
+          //   return (
+          //     <Accordion key={index}>
+          //       <Accordion.Panel header={i.name}>
+          //         <List>
+          //           {i.subMenu.map((s, index2) => {
+          //             return (
+          //               <List.Item className="sub-menu" key={index2}>{s.name}</List.Item>
+          //             )
+          //           })}
+          //         </List>
+          //       </Accordion.Panel>
+          //     </Accordion>
+          //   )
 
-          } else {
-            return (
-              <List key={index}>
-                <List.Item>
-                  {i.name}
-                </List.Item>
-              </List> 
-            );
-          }
-        })}
+          // } else {
+          return (
+            <List key={item.name}>
+              <List.Item>
+                <div className="menu">
+
+                  <img src={firstMenu} alt="" style={{ marginRight: 20 }} />
+
+                  {item.name}
+                </div>
+              </List.Item>
+            </List>
+          );
+          // }
+        }
+        )}
       </div>
     )
   }
+
+  onSearch = (e) => {
+    const { nowPage } = this.state;
+    const { onSearch, history } = this.props;
+    console.log(nowPage)
+    if (nowPage === 'channel') {
+      history.push('/channel')
+    } else if (nowPage === 'pass') {
+      history.push(`/${nowPage}`)
+    } else {
+      history.push(`/pass`)
+    }
+  }
+
   render() {
-    const {siteName = '郡县网', icon = logo} = this.props
+    const { nowPage } = this.state;
+    const { siteName = '郡县网', icon = logo } = this.props
+
+
     return (
       <React.Fragment>
         <div className="user-state-control">
@@ -69,7 +161,12 @@ class Header extends Component {
           <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
           {/* </Link> */}
           <div className="search-bar">
-            <InputItem clear placeholder="栏目/关键词查询" ref={el => (this.autoFocusInst = el)} extra={<Icon type="search" size="md" />} />
+            <InputItem
+              clear placeholder={nowPage !== 'channel' ? '郡县通内容查询' : '郡县号内容查询'}
+              ref={el => (this.autoFocusInst = el)}
+              extra={<Icon type="search" size="md" />}
+              onExtraClick={this.onSearch}
+            />
           </div>
           <Button className="menu-btn" onClick={this.onOpenChange}>
             <i className="iconfont">&#xe61a;</i>

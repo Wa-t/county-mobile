@@ -6,22 +6,24 @@ import Intro from '../../component/Intro';
 import Copyright from '../../component/Copyright';
 import topicList from './topicList';
 import { menus } from './menuList';
-import {getSearchParams} from '../../utils'
+import { getSearchParams } from '../../utils'
 import './index.less';
 
 const siderBar = [
-  {name: '郡县通'},
-  {name: '县域联播'},
-  {name: '百县工程'},
-  {name: '小康指数'},
-  {name: '其他', subMenu: [
-    {name: '关于我们'},
-    {name: '客服中心'},
-    {name: '会员加盟'},
-    {name: '招商合作'},
-  ]},
+  { name: '郡县通' },
+  { name: '县域联播' },
+  { name: '百县工程' },
+  { name: '小康指数' },
+  {
+    name: '其他', subMenu: [
+      { name: '关于我们' },
+      { name: '客服中心' },
+      { name: '会员加盟' },
+      { name: '招商合作' },
+    ]
+  },
 ]
-export default class Hundred extends Component {
+export default class Channel extends Component {
   state = {
     data: ['1', '2', '3'],
     imgHeight: 210,
@@ -30,7 +32,7 @@ export default class Hundred extends Component {
     return (
       <Carousel
         className="carousel-container"
-        style={{"touchAction": "none"}}
+        style={{ "touchAction": "none" }}
         autoplay={false}
         infinite
         beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
@@ -44,8 +46,8 @@ export default class Hundred extends Component {
             style={{ height: this.state.imgHeight }}
           >
             <h4 className="title right">{'县域联播'}</h4>
-            <video 
-              style={{ width: '100%', height: '100%', background: '#000',verticalAlign: 'top' }}
+            <video
+              style={{ width: '100%', height: '100%', background: '#000', verticalAlign: 'top' }}
               controls
               controlsList="noremote footbar nodownload noremoteplayback"
               disablePictureInPicture={true}
@@ -93,7 +95,7 @@ export default class Hundred extends Component {
         <div className="page-content">
           <Intro menus={menus} bgUrl={entry_01} title="郡县号" desc="县域民生视频引擎" />
           <div className="channel-content">
-            {!tag ? this.renderCarouselPanel() : '' }
+            {!tag ? this.renderCarouselPanel() : ''}
             {this.renderTopic()}
           </div>
           <Copyright />
