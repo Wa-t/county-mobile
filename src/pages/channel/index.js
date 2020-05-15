@@ -96,7 +96,6 @@ export default class Hundred extends Component {
             {!tag ? this.renderCarouselPanel() : '' }
             {this.renderTopic()}
           </div>
-          <Copyright />
         </div>
       </Flex>
     )

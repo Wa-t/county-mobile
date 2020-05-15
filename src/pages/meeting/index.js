@@ -44,7 +44,6 @@ export default class Hundred extends Component {
               }
             </ul>
           </div>
-          <Copyright />
         </div>
       </Flex>
     )

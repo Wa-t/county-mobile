@@ -32,7 +32,6 @@ class ReportList extends Component {
           <Intro menus={[]} bgUrl={Bg} title="百县榜" desc="中国县域发展榜" />
           <TopNav menuId={2} />
           <div className="report-publish">正在开发中...</div>
-          <Copyright />
         </div>
       </Flex>
     )

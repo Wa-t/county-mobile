@@ -75,12 +75,12 @@ class Hundred extends Component {
               return (
                 <li key={i} >
                   <div className="left">
-                    <Button className="selecting-tag">榜单公告</Button>
-                    <Button className="selecting-tag">榜单冠名</Button>
+                    <Button className="selecting-tag" onClick={(item) => this.onToReport(item)}>榜单公告</Button>
+                    <Button className="selecting-tag" onClick={(item) => this.onToGuanming(item)}>榜单冠名</Button>
                   </div>
                   <div className="center">
                     <div className="title">{item.title}</div>
-                    <div>发布时间：{item.date}</div>
+                    <div >发布时间：{item.date}</div>
                   </div>
                   <div className="right">
                     <div>我要投票</div>
@@ -268,7 +268,6 @@ class Hundred extends Component {
               </section>
             </Tabs>
           </div>
-          <Copyright />
         </div>
       </Flex>
     )

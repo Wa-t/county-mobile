@@ -33,7 +33,6 @@ class ReportList extends Component {
           <Intro menus={[]} bgUrl={Bg} title="百县榜" desc="中国县域发展榜" />
           <TopNav menuId={6} />
           <img className="report-list" src={reportList} alt="榜单总表" />
-          <Copyright />
         </div>
       </Flex>
     )

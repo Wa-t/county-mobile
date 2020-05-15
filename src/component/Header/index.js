@@ -4,6 +4,7 @@ import { Drawer, Accordion, List, Button, Icon, InputItem } from 'antd-mobile';
 import logo from '../../assets/images/logo.png';
 import qrcode from '../../assets/images/qrcode.png';
 import slogan from '../../assets/images/icon-slogan.gif';
+import {Link } from 'react-router-dom'
 import './index.less';
 
 class Header extends Component {
@@ -65,8 +66,10 @@ class Header extends Component {
           </div>
         </div>
         <div className="header-slogan">
-          {/* <Link to='/'> */}
-          <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
+          <Link to='/'>
+            <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
+          </Link>
+          
           {/* </Link> */}
           <div className="search-bar">
             <InputItem clear placeholder="栏目/关键词查询" ref={el => (this.autoFocusInst = el)} extra={<Icon type="search" size="md" />} />

@@ -1,22 +1,18 @@
 import React from 'react';
 import './index.less';
-import logo from '../../assets/images/logo-whileBg.png';
+import logo from '../../assets/images/footerLogo.png';
 
-const style = {  }
 
 const Copyright = props => {
   return (
     <div className="copyright">
       <img src={logo} alt="logo" />
       <div className="info">
-        <div >
-          Copyright © 2019
-          <a href="http://www.chinaxiaokang.com/" target="_blank" rel="noopener noreferrer" >
-            www.chinaxiaokang.com
-          </a>
+        <div>
+        《小康》杂志社旗下网站 北京小康文化发展有限公司版权所有 
         </div>
-        <div style={style}>
-        版权所有 新华网股份有限公司 京ICP备12037298号
+        <div>
+        Copyright©2019 <a href="www.chinaxiaokang.com">www.chinaxiaokang.com</a>
         </div>
       </div>
     </div>

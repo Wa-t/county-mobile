@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 import { Flex } from 'antd-mobile';
-// import { Layout } from 'antd';
 import PrimaryRouter from './router/PrimaryRouter';
-// import SiteHeader from './component/Header';
-// import SiteFooter from './component/Footer';
-import NavBar from './component/AppNavBar';
-import TabBar from './component/AppTabBar';
+// import NavBar from './component/AppNavBar';
+// import TabBar from './component/AppTabBar';
+import Footer from './component/Footer'
 import './AppLayout.less';
 
 // const { Header, Content, Footer } = Layout;
@@ -20,10 +17,12 @@ class AppLayout extends Component {
         </Flex.Item> */}
         <Flex.Item className="app-content">
           <PrimaryRouter {...this.props}/>
+          <Footer />
         </Flex.Item>
-        <Flex.Item className="app-tabBar">
+
+        {/* <Flex.Item className="app-tabBar">
           <TabBar {...this.props} />
-        </Flex.Item>
+        </Flex.Item> */}
       </Flex>
     )
   }
