@@ -5,14 +5,14 @@ import entry_01 from '../../assets/images/entry_01.png';
 import Copyright from '../../component/Copyright';
 import articleList from './articleList';
 import Intro from '../../component/Intro';
-import {getSearchParams} from '../../utils'
+import {getUrlParams} from '../../utils'
 import { menus } from './menuList';
 import './index.less';
 
 
 export default class Hundred extends Component {
   render() {
-    const params = getSearchParams();
+    const params = getUrlParams();
     const { tag = '政会通'} = params;
     return (
       <Flex

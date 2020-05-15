@@ -1,4 +1,4 @@
-const getSearchParams = (url) => {
+export const getUrlParams = (url) => {
   url = url == null ? window.location.href : url;
   var search = url.substring(url.lastIndexOf("?") + 1);
   var obj = {};
@@ -12,6 +12,8 @@ const getSearchParams = (url) => {
   return obj;
 }
 
-export {
-  getSearchParams
+
+export const getCompleteApi = (path) => {
+  return `https://api.clgnews.com${path}`
 }
+

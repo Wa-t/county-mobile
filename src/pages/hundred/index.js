@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Flex, Tabs, Icon, Toast } from 'antd-mobile';
 import { Form, Select, Button } from 'antd';
 import Header from '../../component/Header';
 import Intro from '../../component/Intro';
+import TopNav from './topNav';
 import entry_01 from '../../assets/images/entry_01.png';
 import { menus } from './menuList';
 import Copyright from '../../component/Copyright';
-import { selectingList, publishList, noPublishList } from './data';
+import publish10 from '../../assets/images/publish10.png'
+import publish100 from '../../assets/images/publish100.png'
+import publishReport from '../../assets/images/publish-report.png'
+import publishNews from '../../assets/images/publish-news.png'
+import unPublish from '../../assets/images/unPublish.png'
+import * as actions from '../../actions/hundred';
 import './index.less';
 
 const { Option } = Select;
@@ -23,7 +30,6 @@ const siderBar = [
   ]},
 ]
 
-const colors = ['cyan', 'yellow', 'purple', 'green'];
 
 class Hundred extends Component {
   state = {
@@ -38,80 +44,120 @@ class Hundred extends Component {
     ],
     showMore: false
   }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(actions.updateState({ loading: true }))
+    dispatch(actions.fetchData())
+  }
+
   showMore() {
     this.setState({
       showMore: !this.state.showMore
     })
   }
+
+  getFilterList = (filterKey) => {
+    const { list = [] } = this.props.data;
+    return list.filter(item => {
+      return item.status === filterKey
+    })
+  }
+
+
   renderSelecting () {
+    const { loading } = this.props;
+    const currentList = this.getFilterList(1) // 1进行中
     return (
       <ul className="selecting">
         {
-          selectingList.map((o, i) => {
-            return (
-              <li key={i} className={colors[i % colors.length]}>
-              <div className="left">
-                <div className="selecting-tag">榜单公告</div>
-                <div className="selecting-tag">榜单冠名</div>
-              </div>
-              <div className="center">
-                <div className="title">{o}</div>
-                <div>发布时间：2020年4月14日</div>
-              </div>
-              <div className="right">
-                我要投票
-              </div>
-            </li>
-            )
-          })
-        }
+            currentList.map((item, i) => {
+              return (
+                <li key={i} >
+                  <div className="left">
+                    <Button className="selecting-tag">榜单公告</Button>
+                    <Button className="selecting-tag">榜单冠名</Button>
+                  </div>
+                  <div className="center">
+                    <div className="title">{item.title}</div>
+                    <div>发布时间：{item.date}</div>
+                  </div>
+                  <div className="right">
+                    <div>我要投票</div>
+                  </div>
+                </li>
+              )
+            })
+          }
       </ul>
     )
   }
   renderPublish () {
+    const { loading } = this.props;
+    const currentList = this.getFilterList(3) // 3已发布（已结束）
     return (
       <ul className="publish">
         {
-          publishList.map((item, index) => {
-            return (
-              <li key={index}>
-                <div className="left">
-                  <div className="title">{item}</div>
-                  <div className="time">发布时间：2020年4月14日</div>
-                </div>
-                <div className="right">
-                  <button>十佳榜</button>
-                  <button>百佳榜</button>
-                  <button>榜单<br />报告</button>
-                  <button>榜单<br />新闻</button>
-                  {/* <button><a href="https://www.clgnews.com/report/detail/5e2264a591035c430d6edfc4/#px10">十佳榜</a></button>
-                  <button><a href="https://www.clgnews.com/report/detail/5e2264a591035c430d6edfc4/#px100">百佳榜</a></button>
-                  <button><a href="https://www.clgnews.com/report/detail/5e2264a591035c430d6edfac/">榜单<br />报告</a></button>
-                  <button><a href="https://www.clgnews.com/news_list/bangdannews/1">榜单<br />新闻</a></button> */}
-                </div>
-              </li>
-            )
-          })
-        }
+            currentList.map((item, index) => {
+              const link = `#/detail/${item._id}?type=3`
+              return (
+                <li key={index}>
+                  <div className="left">
+                    <div className="title">
+                      <a href={`${link}`} target="_blank" rel="noopener noreferrer">{item.title}</a>
+                    </div>
+                    <div className="time">发布时间：{item.date}</div>
+                  </div>
+                  <div className="right">
+                    <div>
+                      <a href={`${link}&link=px10`} target="_blank" rel="noopener noreferrer">
+                        <img style={{ width: '100%' }} src={publish10} alt="" />
+                      </a>
+                    </div>
+                    <div>
+                      <a href={`${link}&link=px100`} target="_blank" rel="noopener noreferrer">
+                        <img style={{ width: '100%' }} src={publish100} alt="" />
+                      </a>
+                    </div>
+                    <div>
+                      <a href={`${link}`} target="_blank" rel="noopener noreferrer">
+                        <img style={{ width: '100%' }} src={publishReport} alt="" />
+                      </a>
+                    </div>
+                    <div>
+
+                      <a href="#/newList/2" target="_blank" rel="noopener noreferrer">
+                        <img style={{ width: '100%' }} src={publishNews} alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
       </ul>
     )
   }
   renderNoPublish () {
+    const { loading } = this.props;
+    const currentList = this.getFilterList(0) // 0未发布（待启动）
     return (
       <ul className="no-publish">
         {
-          noPublishList.map((item, index) => {
-            return (
-              <li key={index}>
-                <div className="left">2020<br />四月</div>
-                <div className="right">
-                  <div className="title">{item}</div>
-                  <div className="time">发布时间：2020年4月14日</div>
-                </div>
-              </li>
-            )
-          })
-        }
+            currentList.map((item, index) => {
+              return (
+                <li key={index}>
+                  <div className="left">
+                    <img src={unPublish} alt="" />
+                  </div>
+                  <div className="right">
+                    <div className="title">{item.title}</div>
+                    <div className="time">发布时间：{item.date}</div>
+                  </div>
+                </li>
+              )
+            })
+          }
       </ul>
     )
   }
@@ -167,7 +213,7 @@ class Hundred extends Component {
       >
         <Header menu={siderBar} />
         <div className="page-content">
-          <Intro menus={menus} bgUrl={entry_01} title="百县榜" desc="中国县域发展榜" />
+          <TopNav menus={menus} title="百县榜" desc="中国县域发展榜" />
           <div onClick={() => this.showMore()} className={this.state.showMore? 'about' : 'about textover'}>
             <h4>
               关于中国县域发展榜
@@ -204,4 +250,4 @@ class Hundred extends Component {
 
 
 const HundredF = Form.create()(Hundred);
-export default HundredF
+export default connect(state => state.hundredReducer)(HundredF);
