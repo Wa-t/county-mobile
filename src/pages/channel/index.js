@@ -6,7 +6,7 @@ import Intro from '../../component/Intro';
 import Copyright from '../../component/Copyright';
 import topicList from './topicList';
 import { menus } from './menuList';
-import {getSearchParams} from '../../utils'
+import {getUrlParams} from '../../utils'
 import './index.less';
 
 const siderBar = [
@@ -62,7 +62,7 @@ export default class Hundred extends Component {
   }
 
   renderTopic() {
-    const params = getSearchParams();
+    const params = getUrlParams();
     const { tag } = params;
     const list = tag ? [...topicList, ...topicList] : topicList
     return (
@@ -82,7 +82,7 @@ export default class Hundred extends Component {
   }
 
   render() {
-    const params = getSearchParams();
+    const params = getUrlParams();
     const { tag } = params;
     return (
       <Flex

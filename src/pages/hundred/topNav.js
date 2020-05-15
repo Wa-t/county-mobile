@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Bg from '../../assets/images/bangbg.png';
 import './index.less';
 
 class Intro extends Component {
   render() {
 
-    const { menus, title, bgUrl, desc = "" } = this.props;
+    const { menus, title, desc = "" } = this.props;
     const cardStyle = {
-      backgroundImage: `url(${bgUrl})`,
+      backgroundImage: `url(${Bg})`,
     }
     return (
       <header className="intro" style={cardStyle}>
