@@ -11,7 +11,7 @@ import './index.less';
 const menu = [
   {
     name: '百县榜',
-    path: '/hundred'
+    path: '/bang'
   },
   {
     name: '郡县号',
@@ -90,29 +90,15 @@ class Header extends Component {
     return (
       <div>
         {menu.map((item, index) => {
-          // if (i.subMenu) {
-          //   return (
-          //     <Accordion key={index}>
-          //       <Accordion.Panel header={i.name}>
-          //         <List>
-          //           {i.subMenu.map((s, index2) => {
-          //             return (
-          //               <List.Item className="sub-menu" key={index2}>{s.name}</List.Item>
-          //             )
-          //           })}
-          //         </List>
-          //       </Accordion.Panel>
-          //     </Accordion>
-          //   )
 
-          // } else {
           return (
             <List key={item.name}>
               <List.Item>
                 <div className="menu">
-
-                  <img src={firstMenu} alt="" style={{ marginRight: 20 }} />
-
+                  {item.isSecond ?
+                    <img src={secondMenu} alt="" /> :
+                    <img src={firstMenu} alt="" style={{ marginRight: 20 }} />
+                  }
                   {item.name}
                 </div>
               </List.Item>
