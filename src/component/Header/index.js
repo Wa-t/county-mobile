@@ -38,27 +38,27 @@ const menu = [
   },
   {
     name: '中国小康网',
-    path: '/http://www.chinaxiaokang.com/',
+    path: 'http://www.chinaxiaokang.com/zhongguoxiaokangzhishu/',
     isOut: true,
   },
   {
     name: '关于我们',
-    path: '/',
+    path: '/about',
     isSecond: true,
   },
   {
     name: '客服中心',
-    path: '/',
+    path: '/service',
     isSecond: true,
   },
   {
     name: '会员中心',
-    path: '/',
+    path: '/member',
     isSecond: true,
   },
   {
     name: '榜单合作',
-    path: '/',
+    path: '/cooperation',
     isSecond: true,
   },
 ]
@@ -70,12 +70,28 @@ class Header extends Component {
   }
 
   componentDidMount() {
+    console.log('ggggggggggg')
     const { location } = this.props;
     const { pathname } = location;
     this.setState({
-      nowPage: pathname.split('/')[1]
+      nowPage: pathname
     })
     this.autoFocusInst.focus()
+  }
+
+  onSelect = (item) => {
+    const { path } = item;
+    this.setState({
+      nowPage: path
+    })
+    console.log(item)
+    if (item.isOut) {
+      console.log(item)
+
+      window.location.href = item.path;
+    } else {
+      this.props.history.push(path)
+    }
   }
 
   onOpenChange = (...args) => {
@@ -87,17 +103,35 @@ class Header extends Component {
   }
 
   renderSideBar() {
+    const { nowPage } = this.state;
+
     return (
       <div>
         {menu.map((item, index) => {
 
           return (
-            <List key={item.name}>
-              <List.Item>
-                <div className="menu">
+            <List
+              key={item.name}
+              onClick={() => this.onSelect(item)}
+            >
+              <List.Item className={(item.path === nowPage && !item.isOut) ? 'selected' : ''}>
+                <div className="menu" >
                   {item.isSecond ?
-                    <img src={secondMenu} alt="" /> :
-                    <img src={firstMenu} alt="" style={{ marginRight: 20 }} />
+                    <img src={secondMenu} alt=""
+                      style={{
+                        margin: '0 20px 0 30px',
+                        width: 22,
+                        height: 22,
+                        borderRadius: 22
+                      }}
+                    /> :
+                    <img src={firstMenu} alt=""
+                      style={{
+                        marginRight: 20,
+                        width: 22,
+                        height: 22,
+                        borderRadius: 22
+                      }} />
                   }
                   {item.name}
                 </div>
