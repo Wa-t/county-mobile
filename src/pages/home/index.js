@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Flex, Accordion } from 'antd-mobile';
-import Header from '../../component/Header';
 import bluebg from '../../assets/images/bluebg.png';
 import greybg from '../../assets/images/greybg.png';
 import navBg1 from '../../assets/images/homeNavBg1.png';
@@ -17,12 +16,6 @@ const row2Style = {
   backgroundImage: `url(${navBg2})`
 }
 
-const siderBar = [
-  {name: '关于我们'},
-  {name: '客服中心'},
-  {name: '会员加盟'},
-  {name: '招商合作'},
-]
 export default class HomePage extends Component {
   state = {
     submenuList: [
@@ -223,7 +216,6 @@ export default class HomePage extends Component {
         direction="column"
         align="stretch"
       >
-        <Header history={this.props.history} menu={siderBar}/>
         <div className="page-content">
           {this.renderCarouselPanel()}
           {this.renderMenus()}
