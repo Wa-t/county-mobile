@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import { Flex, Carousel, Accordion } from 'antd-mobile';
+import { Flex, Accordion } from 'antd-mobile';
 import Header from '../../component/Header';
 import bluebg from '../../assets/images/bluebg.png';
 import greybg from '../../assets/images/greybg.png';
+import navBg1 from '../../assets/images/homeNavBg1.png';
+import navBg2 from '../../assets/images/homeNavBg2.png';
 import './index.less';
+
+const row1Style = {
+  padding: '20px 48px 10px',
+  backgroundImage: `url(${navBg1})`
+}
+
+const row2Style = {
+  padding: '0 10px 20px',
+  backgroundImage: `url(${navBg2})`
+}
+
 const siderBar = [
   {name: '关于我们'},
   {name: '客服中心'},
@@ -155,7 +168,7 @@ export default class HomePage extends Component {
             <ul 
               className="submenu-list" 
               key={groupIndex} 
-              style={{ padding: groupIndex === 0 ? '20px 48px 10px' : '0 10px 20px'}}
+              style={groupIndex === 0 ? row1Style : row2Style}
             >
               {
                 group.map((item, index) => {
@@ -198,6 +211,7 @@ export default class HomePage extends Component {
             this.state.articleList.map((val, index) => 
               (
                 <Accordion.Panel header={val.name} key={val.key}>
+                  <div className={ activeKey === val.key ? 'show' : 'hidden' } />
                   <section key={index}>
                     <p>{val.detail}</p>
                   </section>
