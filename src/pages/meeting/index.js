@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Flex } from 'antd-mobile';
-import Header from '../../component/Header';
 import entry_01 from '../../assets/images/entry_01.png';
 import Copyright from '../../component/Copyright';
 import articleList from './articleList';
@@ -19,7 +18,6 @@ export default class Hundred extends Component {
         direction="column"
         align="stretch"
       >
-        <Header />
         <div className="page-content">
         <Intro menus={menus} bgUrl={entry_01} title="郡县通" desc="县域赋能产品中心" />
           <div className="meeting-content">

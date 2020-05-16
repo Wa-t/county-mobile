@@ -241,7 +241,6 @@ class Hundred extends Component {
         direction="column"
         align="stretch"
       >
-        {/* <Header menu={siderBar} /> */}
         <div className="page-content">
           <Intro menus={[]} bgUrl={Bg} title="百县榜" desc="中国县域发展榜" />
           <TopNav />

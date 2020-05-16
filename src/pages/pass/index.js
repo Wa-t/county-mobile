@@ -1,24 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Flex } from 'antd-mobile';
-import Header from '../../component/Header';
-import Copyright from '../../component/Copyright';
-
 import Intro from '../../component/Intro';
-
 import { menus } from './menuList';
-
 import './index.less';
-
 import entry_01 from '../../assets/images/entry_01.png';
 import { passMenus } from './passMenus';
 
-const siderBar = [
-  { name: '关于我们' },
-  { name: '客服中心' },
-  { name: '会员加盟' },
-  { name: '招商合作' },
-]
 export default class Pass extends Component {
   state = {
     showMore: false
@@ -82,7 +70,6 @@ export default class Pass extends Component {
         direction="column"
         align="stretch"
       >
-        {/* <Header menu={siderBar} /> */}
         <div className="page-content">
           <Intro menus={menus} bgUrl={entry_01} title="郡县通" desc="县域赋能产品中心" />
           <div onClick={() => this.showMore()} className={this.state.showMore ? 'about' : 'about textover'}>
