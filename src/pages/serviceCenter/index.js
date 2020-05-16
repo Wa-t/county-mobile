@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
-import Banner from '../../component/Banner';
+import Intro from '../../component/Intro';
 import banner_04 from '../../assets/images/banner_04.png';
 import aboutImg from '../../assets/images/about.png'
 import { checkFull } from '../../utils';
@@ -22,24 +21,9 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Row className="channel-container">
-        <Row>
-          <Col span={24}>
-            {/* <Banner backgroundImage={banner_04} title="客服中心" desc="县域赋能产品中心" /> */}
-            <Banner backgroundImage={banner_04} title="客服中心" desc="" />
-          </Col>
-          <Col span={24}>
-            <Breadcrumb separator=">">
-              <Breadcrumb.Item>
-                <Link to="/">首页</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Link to="#">关于我们</Link>
-              </Breadcrumb.Item>
-            </Breadcrumb>
-          </Col>
-        </Row>
-        <Row>
+      <div className="page-content">
+        <Intro menus={[]} bgUrl={banner_04} title="客服中心" desc="" />
+        <div className="article">
           <div className="page-title">关于郡县网</div>
           <div className="about-page-img">
             <img src={aboutImg} alt="" />
@@ -57,8 +41,8 @@ export default class Index extends Component {
             个县域开辟县域新闻资讯联播专区，日均上线县域资讯逾30000条，网站拥有百万级关注读者，日均阅读流量逾千万。郡县网关注民生，服务县域，致力于成为中国县域发展的资讯赋能专网。
           </div>
           <div className="divider" />
-        </Row>
-        <Row>
+        </div>
+        <div>
           <div className="page-title">联系我们</div>
           <div className="contact-item label" >中国县域发展榜课题组邮箱：</div>
           <div className="contact-item" >
@@ -77,8 +61,8 @@ export default class Index extends Component {
           <div className="contact-item-more" style={{ marginTop: 30 }} >《小康》杂志社社址：</div>
           <div className="contact-item" >北京市朝阳区百子湾路32号苹果社区北区1号楼四层</div>
           <div className="contact-item" >如需更多信息，请前往介绍页面</div>
-        </Row>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
