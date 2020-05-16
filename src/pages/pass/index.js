@@ -5,10 +5,8 @@ import { Flex } from 'antd-mobile';
 import Intro from '../../component/Intro';
 
 import './index.less';
-
 import entry_01 from '../../assets/images/entry_01.png';
 import { passMenus } from './passMenus';
-
 
 export default class Pass extends Component {
   state = {

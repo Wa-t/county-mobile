@@ -7,7 +7,6 @@ import Header from './component/Header'
 import Footer from './component/Footer'
 import './AppLayout.less';
 
-// const { Header, Content, Footer } = Layout;
 
 class AppLayout extends Component {
   render() {

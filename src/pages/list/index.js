@@ -65,14 +65,14 @@ export default class Index extends Component {
           </Row> */}
         <div className="link-parent" >
           <List>
-            {this.state.data.length ? this.state.data.map(item => 
+            {!this.state.data.length ? this.state.data.map(item => 
               <List.Item arrow="empty" wrap>
                 <Link className="link-box" key={item._id} to={`/detail/${item._id}?type=${this.state.type}`} >
                   <div className="link-item link-item-title">{item.title}</div>
                   <List.Item.Brief><div className="link-item link-item-date">{moment(item.publishDate || item.publish).format('YYYY-MM-DD')}</div></List.Item.Brief>
                 </Link>
               </List.Item>
-            ) : <Empty style={{ minHeight: 300 }} description="暂无数据"/>}
+            ) : <Empty description="暂无数据"/>}
           </List>
         </div>
       </div>

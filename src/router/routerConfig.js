@@ -14,6 +14,7 @@ import Service from '../pages/serviceCenter';
 import Cooperation from '../pages/cooperation';
 import Detail from '../pages/articalDetail';
 import NewList from '../pages/list';
+import HundredDetail from '../pages/hundredDetail';
 
 const routes = [
   {
@@ -108,6 +109,12 @@ const routes = [
     path: '/detail/:id',
     component: Detail,
     name: '文章详情',
+    isShow: false
+  },
+  {
+    path: '/appDetail',
+    component: HundredDetail,
+    name: '百县榜详情',
     isShow: false
   },
 

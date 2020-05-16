@@ -197,9 +197,8 @@ class Header extends Component {
           <div className="search-bar">
             <InputItem
               onChange={this.onChange}
-              clear
-              placeholder={nowPage !== '/channel' ? '郡县通内容查询' : '郡县号内容查询'}
-              ref={el => (this.autoFocusInst = el)}
+              clear placeholder={nowPage !== '/channel' ? '郡县通内容查询' : '郡县号内容查询'}
+              // ref={el => (this.autoFocusInst = el)}
               extra={<Icon type="search" size="md" />}
               onExtraClick={this.onSearch}
               onVirtualKeyboardConfirm={this.onSearch}
