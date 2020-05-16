@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Flex } from 'antd-mobile';
+import { Empty } from 'antd';
 import { connect } from 'react-redux';
 import banner from '../../assets/images/banner_03.png';
 import Intro from '../../component/Intro';
@@ -58,6 +59,9 @@ class Channel extends Component {
 
   renderCarouselPanel() {
     const { data } = this.state;
+    if (!data.length) {
+      return <Empty description="暂无数据" />
+    }
     return (
       <div className="videos">
         {data.map((item, key) => (

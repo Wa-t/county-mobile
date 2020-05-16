@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { List, Button } from 'antd-mobile';
+import { Button } from 'antd-mobile';
 import Intro from '../../component/Intro';
-import CarouselMenu from '../../component/CarouselMenu';
+
+import { Empty } from 'antd';
 import banner_04 from '../../assets/images/banner_04.png';
 import Article from './article';
 import { getUrlParams } from '../../utils';
@@ -126,7 +127,7 @@ class Platform extends Component {
               }}
             >
               {
-                articals.map((item, key) => (
+                articals.length ? articals.map((item, key) => (
                   <div key={key} className="list-item">
                     <div className="img">
                       <img alt="" style={{ width: 160, height: 100 }} src={item.img}></img>
@@ -162,7 +163,7 @@ class Platform extends Component {
                     </div>
 
                   </div>
-                ))
+                )) : <Empty description="暂无数据！" />
               }
             </div>
             : <Article title={nowDetail} />
