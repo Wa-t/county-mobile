@@ -78,7 +78,7 @@ class Header extends Component {
     this.setState({
       nowPage: pathname,
     })
-    this.autoFocusInst.focus()
+    // this.autoFocusInst.focus()
   }
 
 
