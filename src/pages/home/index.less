@@ -47,21 +47,31 @@
   .about-list{
     padding: 0 10px;
     font-size: 16px;
+    margin: 0 20px;
     overflow: hidden;
-    section{
-      border-radius: 5px;
-      border:1px solid #ccc;
-      background: #fff;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-    }
-    h4{
-      line-height: 2;
+    border: 1px solid #ccc;
+    .am-accordion-header {
       text-align: center;
-      color: #1B63DA;
-      background: rgb(212, 234, 248);
-      border-radius: 5px 5px 0 0;
-      margin-bottom: 4px;
+      background-color: #c5c5c5;
+      border-radius: 20px;
+      height: 40px;
+      color: #fff;
+      width: 220px;
+      margin: auto;
+      vertical-align: middle;
+      position: relative;
+      &[aria-expanded="true"] {
+        background-color: #1b63da;
+      }
+      i.arrow {
+        // position: absolute;
+        // top: 10x;
+        // right: -50%;
+      }
+    }
+    section{
+      background: #fff;
+      padding: 10px;
     }
     p{
       padding: 0 8px;

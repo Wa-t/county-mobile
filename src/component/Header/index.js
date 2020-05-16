@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Drawer, Accordion, List, Button, Icon, InputItem } from 'antd-mobile';
 import logo from '../../assets/images/logo.png';
+import qrcode from '../../assets/images/qrcode.png';
+import slogan from '../../assets/images/icon-slogan.gif';
+import { Link } from 'react-router-dom'
 import firstMenu from '../../assets/images/firstMenu.png';
 import secondMenu from '../../assets/images/secondMenu.png';
 
@@ -82,9 +85,9 @@ class Header extends Component {
   onSelect = (item) => {
     const { path } = item;
     this.setState({
-      nowPage: path
+      nowPage: path,
+      open: false
     })
-    console.log(item)
     if (item.isOut) {
       console.log(item)
 
@@ -114,8 +117,13 @@ class Header extends Component {
               key={item.name}
               onClick={() => this.onSelect(item)}
             >
-              <List.Item className={(item.path === nowPage && !item.isOut) ? 'selected' : ''}>
-                <div className="menu" >
+              <List.Item
+                className={(item.path === nowPage && !item.isOut) ? 'selected' : ''}
+              >
+                <div
+                  className="menu"
+                  className={item.isSecond ? 'second' : ''}
+                >
                   {item.isSecond ?
                     <img src={secondMenu} alt=""
                       style={{
@@ -177,8 +185,10 @@ class Header extends Component {
           </div>
         </div>
         <div className="header-slogan">
-          {/* <Link to='/'> */}
-          <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
+          <Link to='/'>
+            <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
+          </Link>
+
           {/* </Link> */}
           <div className="search-bar">
             <InputItem

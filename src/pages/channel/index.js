@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Flex, Carousel } from 'antd-mobile';
 import Header from '../../component/Header';
-import entry_01 from '../../assets/images/banner_02.png';
+import banner from '../../assets/images/banner_03.png';
 import Intro from '../../component/Intro';
 import Copyright from '../../component/Copyright';
 import topicList from './topicList';
@@ -9,20 +9,6 @@ import { menus } from './menuList';
 import { getUrlParams } from '../../utils'
 import './index.less';
 
-const siderBar = [
-  { name: '郡县通' },
-  { name: '县域联播' },
-  { name: '百县工程' },
-  { name: '小康指数' },
-  {
-    name: '其他', subMenu: [
-      { name: '关于我们' },
-      { name: '客服中心' },
-      { name: '会员加盟' },
-      { name: '招商合作' },
-    ]
-  },
-]
 export default class Channel extends Component {
   state = {
     data: ['1', '2', '3'],
@@ -91,16 +77,15 @@ export default class Channel extends Component {
         direction="column"
         align="stretch"
       >
-        <Header siteName="郡县网" menu={siderBar} />
+        {/* <Header /> */}
         <div className="page-content">
-          <Intro menus={menus} bgUrl={entry_01} title="郡县号" desc="县域民生视频引擎" />
+          <Intro menus={menus} bgUrl={banner} title="郡县号" desc="县域民生视频引擎" />
           <div className="channel-content">
             {!tag ? this.renderCarouselPanel() : ''}
             {this.renderTopic()}
           </div>
-          <Copyright />
         </div>
-      </Flex>
+      </Flex >
     )
   }
 };

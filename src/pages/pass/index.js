@@ -14,10 +14,10 @@ import entry_01 from '../../assets/images/entry_01.png';
 import { passMenus } from './passMenus';
 
 const siderBar = [
-  {name: '关于我们'},
-  {name: '客服中心'},
-  {name: '会员加盟'},
-  {name: '招商合作'},
+  { name: '关于我们' },
+  { name: '客服中心' },
+  { name: '会员加盟' },
+  { name: '招商合作' },
 ]
 export default class Pass extends Component {
   state = {
@@ -59,13 +59,13 @@ export default class Pass extends Component {
           {this.renderModuleMenu()}
           <div className="module-content">
             <div className="videoWrap">
-              <video 
+              <video
                 controls
                 controlsList="noremote footbar nodownload noremoteplayback"
                 disablePictureInPicture={true}
                 id="banner-video"
                 loop="loop"
-                // autoPlay
+              // autoPlay
               >
                 <source src='https://cdn.clgnews.com/video/site.mp4' type="video/mp4" />
                 您的浏览器不支持播放视频
@@ -82,10 +82,10 @@ export default class Pass extends Component {
         direction="column"
         align="stretch"
       >
-        <Header menu={siderBar} />
+        {/* <Header menu={siderBar} /> */}
         <div className="page-content">
           <Intro menus={menus} bgUrl={entry_01} title="郡县通" desc="县域赋能产品中心" />
-          <div onClick={() => this.showMore()} className={this.state.showMore? 'about' : 'about textover'}>
+          <div onClick={() => this.showMore()} className={this.state.showMore ? 'about' : 'about textover'}>
             <h4>
               关于中国县域发展榜
               <span>{this.state.showMore ? '收起<': '更多>'}</span>
@@ -93,7 +93,6 @@ export default class Pass extends Component {
             <div>"郡县通"平台是面向县域推出的数字资讯技术产品服务平台。“郡县通”产品和服务包括：政会通智能会务系统、政网哨舆情预警系统、政讯报郡县政务参考、微讯社郡县新闻资讯门户、圆点直播政经民生视频直播、卡乐图片原创图像影音数据库、郡县云桥县域融媒采集编播系统等，更多产品与服务，将顺应县域政务发展需求而继续推出。</div>
           </div>
           {this.renderNavModule()}
-          <Copyright />
         </div>
       </Flex>
     )
