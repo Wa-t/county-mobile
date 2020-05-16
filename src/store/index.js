@@ -1,13 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import loggedUserReducer from "../reducer/loggedUserReducer";
 import searchParamReuducer from '../reducer/searchParamReducer';
+import platformReducer from '../reducer/platformReducer';
+
 import hundredReducer from '../reducer/hundred'
 import thunkMiddleware from "redux-thunk";
 
 const reducers = combineReducers({
   loggedUserReducer,
   hundredReducer,
-  searchParamReuducer
+  searchParamReuducer,
+  platformReducer
 });
 
 let middlewares = [thunkMiddleware];

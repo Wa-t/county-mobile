@@ -115,9 +115,6 @@ class Channel extends Component {
     )
   }
 
-  renderTopic() {
-
-  }
 
   render() {
     const params = getUrlParams();

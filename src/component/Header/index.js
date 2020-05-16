@@ -22,7 +22,7 @@ const menu = [
   },
   {
     name: '郡县通',
-    path: '/pass'
+    path: '/tong'
   },
   {
     name: '县域联播',
@@ -78,7 +78,7 @@ class Header extends Component {
     this.setState({
       nowPage: pathname,
     })
-    this.autoFocusInst.focus()
+    // this.autoFocusInst.focus()
   }
 
 
@@ -90,8 +90,6 @@ class Header extends Component {
       open: false
     })
     if (item.isOut) {
-      console.log(item)
-
       window.location.href = item.path;
     } else {
       this.props.history.push(path)
@@ -164,12 +162,13 @@ class Header extends Component {
     const { nowPage, value } = this.state;
     const { history, dispatch } = this.props;
     dispatch(acitons.updateState({ searchText: value }))
+    console.log(nowPage)
     if (nowPage === '/channel') {
       history.push('/channel')
-    } else if (nowPage === '/pass') {
-      history.push(`/${nowPage}`)
+    } else if (nowPage === '/tong/platform/list') {
+      history.replace('/tong/platform/list')
     } else {
-      history.push(`/pass`)
+      history.push(`/tong/platform/list`)
     }
   }
 
@@ -192,13 +191,14 @@ class Header extends Component {
           </div>
         </div>
         <div className="header-slogan">
-        <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
+          <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
 
           {/* </Link> */}
           <div className="search-bar">
             <InputItem
               onChange={this.onChange}
-              clear placeholder={nowPage !== '/channel' ? '郡县通内容查询' : '郡县号内容查询'}
+              clear
+              placeholder={nowPage !== '/channel' ? '郡县通内容查询' : '郡县号内容查询'}
               ref={el => (this.autoFocusInst = el)}
               extra={<Icon type="search" size="md" />}
               onExtraClick={this.onSearch}

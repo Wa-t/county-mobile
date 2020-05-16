@@ -28,8 +28,7 @@
       background: url('../../assets/images/frame.png') center no-repeat;
       background-size: cover;
       z-index: 2;
-      margin: 60px auto;
-
+      margin: 10px auto 20px;
 
       .module-content {
         display: inline-block;
@@ -40,12 +39,14 @@
         border-radius: 150px;
         background-color: @ColorF;
         overflow: hidden;
+
         .videoWrap {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
           width: 300px;
           height: 300px;
+
           video {
             width: 100%;
             height: 100%;
@@ -80,10 +81,7 @@
           &::before {
             position: absolute;
             content: '';
-            // background: url('../../assets/images/point-light.png') center no-repeat;
             background-size: cover;
-            // width: 104%;
-            // height: 104%;
             left: -2%;
             top: -1%;
             right: -2%;
@@ -102,10 +100,11 @@
 
         p:first-child {
           font-size: @fontF;
-          
+
         }
+
         p:last-child {
-          word-wrap: break-word; 
+          word-wrap: break-word;
           word-break: normal;
           // width: 80%;
           padding: 0 10px;
@@ -115,41 +114,52 @@
         &:nth-child(1) {
           top: -40px;
         }
+
         &:nth-child(2) {
           top: 10px;
           left: 245px;
         }
+
         &:nth-child(3) {
           top: 120px;
           left: 284px;
+
           p:first-child {
             font-size: @fontE;
           }
         }
+
         &:nth-child(4) {
           top: 245px;
           left: 245px;
+
           p:first-child {
             font-size: @fontE;
           }
         }
+
         &:nth-child(5) {
           top: 305px;
+
           p:first-child {
             font-size: @fontE;
           }
         }
+
         &:nth-child(6) {
           top: 245px;
           left: 0;
         }
+
         &:nth-child(7) {
           top: 120px;
           left: -34px;
+
           p:first-child {
             font-size: @fontE;
           }
         }
+
         &:nth-child(8) {
           top: 10px;
           left: 0;
@@ -157,6 +167,7 @@
       }
     }
   }
+
   .ant-input-search {
     padding: 0 30px;
 

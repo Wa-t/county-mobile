@@ -2,10 +2,11 @@
 import HomePage from '../pages/home';
 import HundredCounty from '../pages/hundred';
 import Channel from '../pages/channel';
-import Pass from '../pages/pass';
+import PassRouter from './PassRouter';
 import Meeting from '../pages/meeting';
 import ReportList from '../pages/reportList';
 import ReportPublish from '../pages/reportPublish';
+import Pass from '../pages/pass';
 import Platform from '../pages/pass/platform';
 import About from '../pages/about';
 import Member from '../pages/member';
@@ -35,8 +36,8 @@ const routes = [
     name: '郡县号'
   },
   {
-    path: '/pass',
-    component: Pass,
+    path: '/tong',
+    component: PassRouter,
     name: '郡县通',
     showSub: false,
     routes: [
@@ -47,12 +48,12 @@ const routes = [
         exact: true
       },
       {
-        path: '/tong/platform/:id/:title/:name',
+        path: '/tong/platform/list',
         component: Platform,
         name: '郡县通文章',
       },
       {
-        path: '/tong/platform/:id/:title',
+        path: '/tong/platform/detail',
         component: Platform,
         name: '郡县通平台',
       }
