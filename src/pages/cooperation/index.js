@@ -1,14 +1,11 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col, Breadcrumb, Card, Table } from 'antd';
-import Banner from '../../component/Banner';
-import './index.less';
-import banner_02 from '../../assets/images/banner_02.png';
+import React, { Component } from 'react';
+import { Flex } from 'antd-mobile';
+import { Card, Table } from 'antd';
+import Intro from '../../component/Intro';
+import Bg from '../../assets/images/bangbg.png';
 import summary from '../../assets/images/summary.png'
 import { getUrlParams } from '../../utils';
-
-const BreadcrumbItem = Breadcrumb.Item;
-
+import './index.less';
 
 class Cooperation extends Component {
   columns = [
@@ -61,25 +58,12 @@ class Cooperation extends Component {
 
   render() {
     return (
-      <Row className="hundred-county-container">
-        <Col span={24}>
-          {/* <Banner backgroundImage={banner_02} title="榜单合作" desc="中国县域发展榜" /> */}
-          <Banner backgroundImage={banner_02} title="榜单合作" desc="" />
-        </Col>
-        <Col className="nav-container" span={24}>
-          <Breadcrumb separator=">">
-            <BreadcrumbItem>
-              <Link to="/">首页</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <Link to="">中国县域发展榜</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <Link to="#">详情</Link>
-            </BreadcrumbItem>
-          </Breadcrumb>
-        </Col>
-        <Col>
+      <Flex
+        direction="column"
+        align="stretch"
+      >
+        <div className="page-content">
+          <Intro menus={[]} bgUrl={Bg} title="榜单合作" desc="" />
           <div className="cooperation-container">
             <h2 className="article-title">关注民生 服务县域</h2>
             <h2 className="article-title">中国县域发展榜项目合作邀请函</h2>
@@ -167,12 +151,13 @@ class Cooperation extends Component {
 
 
             <h4 className="section-title">链接信息三:2020 中国县域发展榜榜单发布总表</h4>
-            <Card id="summary-report" className="summary-card" bodyStyle={{ padding: 56 }}>
+            <Card id="summary-report" className="summary-card" bodyStyle={{ padding: 10 }}>
               <img style={{ width: '100%' }} src={summary} alt="" /></Card>
 
           </div>
-        </Col>
-      </Row>
+
+        </div>
+        </Flex>
     );
   }
 }

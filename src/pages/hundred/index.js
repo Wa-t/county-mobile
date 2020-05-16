@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Flex, Tabs, Icon, Toast } from 'antd-mobile';
 import { Form, Select, Button } from 'antd';
-import Header from '../../component/Header';
 import Intro from '../../component/Intro';
 import TopNav from '../../component/TopNav';
-import Copyright from '../../component/Copyright';
 import publish10 from '../../assets/images/publish10.png'
 import publish100 from '../../assets/images/publish100.png'
 import publishReport from '../../assets/images/publish-report.png'
