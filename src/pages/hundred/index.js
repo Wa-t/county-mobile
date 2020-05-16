@@ -17,29 +17,33 @@ import './index.less';
 
 const { Option } = Select;
 const siderBar = [
-  {name: '小康优选'},
-  {name: '县域联播'},
-  {name: '百县工程'},
-  {name: '小康指数'},
-  {name: '其他', subMenu: [
-    {name: '关于我们'},
-    {name: '客服中心'},
-    {name: '会员加盟'},
-    {name: '招商合作'},
-  ]},
+  { name: '小康优选' },
+  { name: '县域联播' },
+  { name: '百县工程' },
+  { name: '小康指数' },
+  {
+    name: '其他', subMenu: [
+      { name: '关于我们' },
+      { name: '客服中心' },
+      { name: '会员加盟' },
+      { name: '招商合作' },
+    ]
+  },
 ]
 
 
 class Hundred extends Component {
   state = {
     tabs: [
-      { title: '进行中榜单'},
+      { title: '进行中榜单' },
       { title: '已发布榜单' },
       { title: '未发布榜单' },
-      { title: (<span style={{verticalAlign: 'bottom'}}>
-        <Icon style={{verticalAlign: 'text-bottom'}} size="xs" type="search" />
+      {
+        title: (<span style={{ verticalAlign: 'bottom' }}>
+          <Icon style={{ verticalAlign: 'text-bottom' }} size="xs" type="search" />
         查询
-        </span>)}
+        </span>)
+      }
     ],
     showMore: false,
     searchResultList: []
@@ -65,98 +69,98 @@ class Hundred extends Component {
   }
 
 
-  renderSelecting () {
+  renderSelecting() {
     const { loading } = this.props;
     const currentList = this.getFilterList(1) // 1进行中
     return (
       <ul className="selecting">
         {
-            currentList.map((item, i) => {
-              return (
-                <li key={i} >
-                  <div className="left">
-                    <Button className="selecting-tag" onClick={(item) => this.onToReport(item)}>榜单公告</Button>
-                    <Button className="selecting-tag" onClick={(item) => this.onToGuanming(item)}>榜单冠名</Button>
-                  </div>
-                  <div className="center">
-                    <div className="title">{item.title}</div>
-                    <div >发布时间：{item.date}</div>
-                  </div>
-                  <div className="right">
-                    <div>我要投票</div>
-                  </div>
-                </li>
-              )
-            })
-          }
+          currentList.map((item, i) => {
+            return (
+              <li key={i} >
+                <div className="left">
+                  <Button className="selecting-tag" onClick={(item) => this.onToReport(item)}>榜单公告</Button>
+                  <Button className="selecting-tag" onClick={(item) => this.onToGuanming(item)}>榜单冠名</Button>
+                </div>
+                <div className="center">
+                  <div className="title">{item.title}</div>
+                  <div >发布时间：{item.date}</div>
+                </div>
+                <div className="right">
+                  <div>我要投票</div>
+                </div>
+              </li>
+            )
+          })
+        }
       </ul>
     )
   }
-  renderPublish () {
+  renderPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(3) // 3已发布（已结束）
     return (
       <ul className="publish">
         {
-            currentList.map((item, index) => {
-              const link = `#/detail/${item._id}?type=3`
-              return (
-                <li key={index}>
-                  <div className="left">
-                    <div className="title">
-                      <a href={`${link}`} target="_blank" rel="noopener noreferrer">{item.title}</a>
-                    </div>
-                    <div className="time">发布时间：{item.date}</div>
+          currentList.map((item, index) => {
+            const link = `#/detail/${item._id}?type=3`
+            return (
+              <li key={index}>
+                <div className="left">
+                  <div className="title">
+                    <a href={`${link}`} target="_blank" rel="noopener noreferrer">{item.title}</a>
                   </div>
-                  <div className="right">
-                    <div className="icon-box" >
-                      <a href={`${link}&link=px10`} target="_blank" rel="noopener noreferrer">
-                        <img style={{ width: '100%' }} src={publish10} alt="" />
-                      </a>
-                    </div>
-                    <div className="icon-box">
-                      <a href={`${link}&link=px100`} target="_blank" rel="noopener noreferrer">
-                        <img style={{ width: '100%' }} src={publish100} alt="" />
-                      </a>
-                    </div>
-                    <div className="icon-box">
-                      <a href={`${link}`} target="_blank" rel="noopener noreferrer">
-                        <img style={{ width: '100%' }} src={publishReport} alt="" />
-                      </a>
-                    </div>
-                    <div className="icon-box">
-                      <a href="#/newList/2" target="_blank" rel="noopener noreferrer">
-                        <img style={{ width: '100%' }} src={publishNews} alt="" />
-                      </a>
-                    </div>
+                  <div className="time">发布时间：{item.date}</div>
+                </div>
+                <div className="right">
+                  <div className="icon-box" >
+                    <a href={`${link}&link=px10`} target="_blank" rel="noopener noreferrer">
+                      <img style={{ width: '100%' }} src={publish10} alt="" />
+                    </a>
                   </div>
-                </li>
-              )
-            })
-          }
+                  <div className="icon-box">
+                    <a href={`${link}&link=px100`} target="_blank" rel="noopener noreferrer">
+                      <img style={{ width: '100%' }} src={publish100} alt="" />
+                    </a>
+                  </div>
+                  <div className="icon-box">
+                    <a href={`${link}`} target="_blank" rel="noopener noreferrer">
+                      <img style={{ width: '100%' }} src={publishReport} alt="" />
+                    </a>
+                  </div>
+                  <div className="icon-box">
+                    <a href="#/newList/2" target="_blank" rel="noopener noreferrer">
+                      <img style={{ width: '100%' }} src={publishNews} alt="" />
+                    </a>
+                  </div>
+                </div>
+              </li>
+            )
+          })
+        }
       </ul>
     )
   }
-  renderNoPublish () {
+  renderNoPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(0) // 0未发布（待启动）
     return (
       <ul className="no-publish">
         {
-            currentList.map((item, index) => {
-              return (
-                <li key={index}>
-                  <div className="left">
-                    <img src={unPublish} alt="" />
-                  </div>
-                  <div className="right">
-                    <div className="title">{item.title}</div>
-                    <div className="time">发布时间：{item.date}</div>
-                  </div>
-                </li>
-              )
-            })
-          }
+          currentList.map((item, index) => {
+            return (
+              <li key={index}>
+                <div className="left">
+                  <img src={unPublish} alt="" />
+                </div>
+                <div className="right">
+                  <div className="title">{item.title}</div>
+                  <div className="time">发布时间：{item.date}</div>
+                </div>
+              </li>
+            )
+          })
+        }
       </ul>
     )
   }
@@ -165,8 +169,8 @@ class Hundred extends Component {
     const { getFieldDecorator } = this.props.form;
     const { searchList = [] } = this.props.data;
     const { searchResultList } = this.state;
-      return (
-        <div style={{ padding: '10px', marginTop: '10px' }}>
+    return (
+      <div style={{ padding: '10px', marginTop: '10px' }}>
         <Form labelCol={{ span: 6 }} wrapperCol={{ span: 16 }}>
           <Form.Item label="榜单">
             {getFieldDecorator('bangId', {
@@ -185,29 +189,29 @@ class Hundred extends Component {
             </Button>
           </Form.Item>
         </Form>
-          <ul className="no-publish">
-            {
-              searchResultList.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <div className="left">
-                      <img src={unPublish} alt="" />
+        <ul className="no-publish">
+          {
+            searchResultList.map((item, index) => {
+              return (
+                <li key={index}>
+                  <div className="left">
+                    <img src={unPublish} alt="" />
+                  </div>
+                  <div className="right">
+                    <div className="title">
+                      <a href={`#/detail/${item._id}?type=3`} target="_blank" rel="noopener noreferrer">
+                        {item.title}
+                      </a>
                     </div>
-                    <div className="right">
-                      <div className="title">
-                        <a href={`#/detail/${item._id}?type=3`} target="_blank" rel="noopener noreferrer">
-                          {item.title}
-                        </a>
-                      </div>
-                      <div className="time">发布时间：{item.date}</div>
-                    </div>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </div>
-      );
+                    <div className="time">发布时间：{item.date}</div>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    );
   }
 
   handleSearchClick = (e) => {
@@ -230,17 +234,17 @@ class Hundred extends Component {
         direction="column"
         align="stretch"
       >
-        <Header menu={siderBar} />
+        {/* <Header menu={siderBar} /> */}
         <div className="page-content">
           <Intro menus={[]} bgUrl={Bg} title="百县榜" desc="中国县域发展榜" />
           <TopNav />
-          <div onClick={() => this.showMore()} className={this.state.showMore? 'about' : 'about textover'}>
+          <div onClick={() => this.showMore()} className={this.state.showMore ? 'about' : 'about textover'}>
             <h4>
               关于中国县域发展榜
-              <span>{this.state.showMore ? '收起<': '更多>'}</span>
+              <span>{this.state.showMore ? '收起<' : '更多>'}</span>
             </h4>
             <div>
-            百县榜是由《小康》杂志联合多个国家权威部门和专业机构，面向中国县域基层行政单位，隆重推出的<span style={{ color: '#1e4ae2' }}>百县榜单工程：中国县域发展榜</span>。
+              百县榜是由《小康》杂志联合多个国家权威部门和专业机构，面向中国县域基层行政单位，隆重推出的<span style={{ color: '#1e4ae2' }}>百县榜单工程：中国县域发展榜</span>。
             “中国县域发展榜”聚焦县域发展， 针对全国每个县域的多项政务领域，深度观察社会民生发展的“毛细血管”，展现中国全面小康的辉煌成就，
             创建中国2856个县域发展的综合测评体系，旨在为县域政务管 理者和各有关职能单位提供执政参考，促进县域治理及经济发展，助推全国县域全面实现小康目标“最后一公里”，
             弘扬县域治理先进，塑造特色县域品牌和提升县域发展 的社会综合形象。中国县域发展榜将每年发布<span style={{ color: '#1e4ae2' }}>52个专项主题榜单</span>。
