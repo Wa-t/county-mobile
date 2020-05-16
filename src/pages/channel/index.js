@@ -86,10 +86,15 @@ class Channel extends Component {
               }}
               controls
               controlsList="noremote  nodownload noremoteplayback"
-              poster=""
               disablePictureInPicture={true}
               id="banner-video"
+              // x-webkit-airplay="allow"
+              x5-video-player-type="h5"
+              // x5-playsinline
+              // webkit-playsinline playsinline
+              poster={item.poster}
               loop="loop"
+
             >
               <source src={item.src} type="video/mp4" />
               您的浏览器不支持播放视频
