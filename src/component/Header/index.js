@@ -114,8 +114,14 @@ class Header extends Component {
               key={item.name}
               onClick={() => this.onSelect(item)}
             >
-              <List.Item className={(item.path === nowPage && !item.isOut) ? 'selected' : ''}>
-                <div className="menu" >
+              <List.Item
+                className={(item.path === nowPage && !item.isOut) ? 'selected' : ''}
+
+              >
+                <div
+                  className="menu"
+                  className={item.isSecond ? 'second' : ''}
+                >
                   {item.isSecond ?
                     <img src={secondMenu} alt=""
                       style={{
