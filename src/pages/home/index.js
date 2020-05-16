@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Flex, Carousel, Accordion } from 'antd-mobile';
 import Header from '../../component/Header';
+import bluebg from '../../assets/images/bluebg.png';
+import greybg from '../../assets/images/greybg.png';
 import './index.less';
 const siderBar = [
   {name: '关于我们'},
@@ -18,54 +20,84 @@ export default class HomePage extends Component {
       'https://cdn.clgnews.com/video/site.mp4',
     ],
     submenuList: [
+     [
       {
-        pic: '',
-        picAttr: '百县榜',
-        title: '中国县域发展榜',
+        title: '百县榜',
+        desc: (
+          <div>
+            <div>中国县域</div>
+            <div>发展榜</div>
+          </div>
+        ),
         path: '/bang'
       },
       {
-        pic: '',
-        picAttr: '郡县号',
-        title: '县域民生视频引擎',
+        title: '郡县号',
+        desc: (
+          <div>
+            <div>县域民生</div>
+            <div>视频引擎</div>
+          </div>
+        ),
         path: '/channel'
       },
       {
-        pic: '',
-        picAttr: '郡县通',
-        title: '县域赋能产品中心',
+        title: '郡县通',
+        desc: (
+          <div>
+            <div>县域赋能</div>
+            <div>产品中心</div>
+          </div>
+        ),
         path: '/pass'
       },
+     ],
+     [
       {
-        pic: '',
-        picAttr: '小康优选',
-        title: '县域地标农品商城',
-        path: '/'
-      },
-      {
-        pic: '',
-        picAttr: '县域联播',
-        title: '县域新闻资讯联播',
+ 
+        title: '县域联播',
+        desc: (
+          <div>
+            <div>县域新闻</div>
+            <div>资讯联播</div>
+          </div>
+        ),
         url: 'http://xianyu.chinaxiaokang.com/map.html'
       },
       {
-        pic: '',
-        picAttr: '百县工程',
-        title: '县域发展系列工程',
+        
+        title: '百县工程',
+        desc: (
+          <div>
+            <div>县域发展</div>
+            <div>系列工程</div>
+          </div>
+        ),
         url: 'http://www.chinaxiaokang.com/xianyu/xiaokangbaixiangongcheng/'
       },
       {
-        pic: '',
-        picAttr: '小康指数',
-        title: '中国小康网独家发布',
+        
+        title: '小康指数',
+        desc: (
+          <div>
+            <div>中国小康网</div>
+            <div>独家发布</div>
+          </div>
+        ),
         url: 'http://www.chinaxiaokang.com/zhongguoxiaokangzhishu/'
       },
       {
-        pic: '',
-        picAttr: '中国小康网',
-        title: '中国县域新闻第一网',
+        
+        title: '中国小康网',
+        desc: (
+          <div>
+            <div>中国县域</div>
+            <div>新闻第一网</div>
+          </div>
+        ),
         url: 'http://www.chinaxiaokang.com/'
       },
+     ]
     ],
     articleList: [
       {key: '1', name: '关于郡县网', detail: '郡县网（www.clgnews.com)是中国小康网旗下县城主题综合资讯专网，县域大数据赋能服务中心和中国县域发展榜专属发布平台。郡县网开辟“百县榜”中国县域发展榜单、“郡县号” 县城民生视频引擎、“郡县通”县域赋能产品中心、“小康优选” 县域地标农品商城和“县城联播”县域新闻资讯联攝等五大功能专区。郡县网联通中国小康网官网和中国小康指数、百县工程、卡乐图片、圆点直播等各大专题频道，链接《小康》新媒体矩阵、郡县榜公众号、郡县通平台和各县域门户站，为全国2800多个县域开辟县域新闻资讯联播专区，日均上线县域资讯逾30000条，网站拥有百万级关注读者，日均阅读流量逾千万。郡县网关注民生，服务县域，致力于成为中国县域发展的资讯赋能专网。'},
@@ -102,60 +134,53 @@ export default class HomePage extends Component {
 
   renderCarouselPanel() {
     return (
-      <>
-       {/* <Button className="switch-btn prev" shape="circle" icon="left" onClick={() => this.handleSwitch('prev')} ></Button>
-        <Button className="switch-btn next" shape="circle" icon="right" onClick={() => this.handleSwitch('next')} ></Button> */}
-        <Carousel
-          className="carousel-container"
-          autoplay={false}
-          infinite
-          style={{"touchAction": "none"}}
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => console.log('slide to', index)}
-        >
-          {this.state.data.map((val, index) => (
-            <a
-              key={index}
-              href="/"
-              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-            >
-              <video 
-                style={{ width: '100%', height: '100%', background: '#000',verticalAlign: 'top' }}
-                controls
-                controlsList="noremote footbar nodownload noremoteplayback"
-                disablePictureInPicture={true}
-                id="banner-video"
-                loop="loop"
-              >
-                <source src='https://cdn.clgnews.com/video/site.mp4' type="video/mp4" />
-                您的浏览器不支持播放视频
-              </video>
-            </a>
-          ))}
-        </Carousel>
-      </>
-     
+      <video 
+        style={{ width: '100%', height: '100%', background: '#000',verticalAlign: 'top' }}
+        controls
+        controlsList="noremote footbar nodownload noremoteplayback"
+        disablePictureInPicture={true}
+        id="banner-video"
+        loop="loop"
+      >
+        <source src='https://cdn.clgnews.com/video/site.mp4' type="video/mp4" />
+        您的浏览器不支持播放视频
+      </video>
     )
   }
   renderSubmenuList () {
     return (
-      <ul className="submenu-list">
-        {this.state.submenuList.map((val, index) => 
-          (
-            <li key={index}>
-              <a href={val.url || '#'} target={val.url? '_blank':''} onClick={(e) => {
-                if(val.path) {
-                  this.props.history.push(val.path)
-                  e.preventDefault()
-                } 
-              }}>
-                <div className="pic">{val.picAttr}</div>
-                <div className="menu-desc">{val.title}</div>
-              </a>
-            </li>
+      <div >
+        {this.state.submenuList.map((group, groupIndex) => {
+          return (
+            <ul 
+              className="submenu-list" 
+              key={groupIndex} 
+              style={{ padding: groupIndex === 0 ? '20px 48px 10px' : '0 10px 20px'}}
+            >
+              {
+                group.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <a href={item.url || '#'} target={item.url? '_blank':''} onClick={(e) => {
+                        if(item.path) {
+                          this.props.history.push(item.path)
+                          e.preventDefault()
+                        } 
+                      }}>
+                        <div className="menu-box" style = {{backgroundImage: `url(${index % 2 === 0 ? bluebg : greybg})`}}>
+                          <div className="menu-title">{item.title}</div>
+                          <div className="menu-desc">{item.desc}</div>
+                        </div>
+                      </a>
+                    </li>
+                  )
+                })
+              }
+            </ul>
           )
-        )}
-      </ul>
+        })
+      }
+      </div>
     )
   }
   renderMenus() {
