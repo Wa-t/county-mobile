@@ -70,9 +70,9 @@ class Hundred extends Component {
   renderSelecting() {
     const { loading } = this.props;
     const currentList = this.getFilterList(1) // 1进行中
-    if (loading) {
-      return < Empty />
-    }
+    // if (loading) {
+    //   return < Empty />
+    // }
     return (
       <ul className="selecting">
         {
@@ -100,9 +100,9 @@ class Hundred extends Component {
   renderPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(3) // 3已发布（已结束）
-    if (loading) {
-      return < Empty />
-    }
+    // if (loading) {
+    //   return < Empty />
+    // }
     return (
       <ul className="publish">
         {
@@ -148,9 +148,9 @@ class Hundred extends Component {
   renderNoPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(0) // 0未发布（待启动）
-    if (loading) {
-      return < Empty />
-    }
+    // if (loading) {
+    //   return < Empty />
+    // }
     return (
       <ul className="no-publish">
         {

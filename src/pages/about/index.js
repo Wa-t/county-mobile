@@ -22,7 +22,7 @@ export default class About extends Component {
   render() {
     return (
       <div className="page-content">
-        <Intro menus={[]} bgUrl={banner_04} title="" desc="" />
+        <Intro menus={[]} bgUrl={banner_04} title="关于我们" desc="" />
         <div className="article">
           <div className="page-title-h1">郡县网：中国县域发展赋能专网</div>
           <div className="page-title-h2">天下治，郡县安</div>
