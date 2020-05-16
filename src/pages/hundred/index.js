@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Flex, Tabs, Icon, Toast } from 'antd-mobile';
-import { Form, Select, Button } from 'antd';
-import Header from '../../component/Header';
+import { Form, Select, Button, Empty } from 'antd';
 import Intro from '../../component/Intro';
 import TopNav from '../../component/TopNav';
-import Copyright from '../../component/Copyright';
 import publish10 from '../../assets/images/publish10.png'
 import publish100 from '../../assets/images/publish100.png'
 import publishReport from '../../assets/images/publish-report.png'
@@ -16,20 +14,6 @@ import Bg from '../../assets/images/bangbg.png';
 import './index.less';
 
 const { Option } = Select;
-const siderBar = [
-  { name: '小康优选' },
-  { name: '县域联播' },
-  { name: '百县工程' },
-  { name: '小康指数' },
-  {
-    name: '其他', subMenu: [
-      { name: '关于我们' },
-      { name: '客服中心' },
-      { name: '会员加盟' },
-      { name: '招商合作' },
-    ]
-  },
-]
 
 
 class Hundred extends Component {
@@ -86,6 +70,9 @@ class Hundred extends Component {
   renderSelecting() {
     const { loading } = this.props;
     const currentList = this.getFilterList(1) // 1进行中
+    if (loading) {
+      return < Empty />
+    }
     return (
       <ul className="selecting">
         {
@@ -113,6 +100,9 @@ class Hundred extends Component {
   renderPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(3) // 3已发布（已结束）
+    if (loading) {
+      return < Empty />
+    }
     return (
       <ul className="publish">
         {
@@ -158,6 +148,9 @@ class Hundred extends Component {
   renderNoPublish() {
     const { loading } = this.props;
     const currentList = this.getFilterList(0) // 0未发布（待启动）
+    if (loading) {
+      return < Empty />
+    }
     return (
       <ul className="no-publish">
         {
@@ -263,7 +256,7 @@ class Hundred extends Component {
             创建中国2856个县域发展的综合测评体系，旨在为县域政务管 理者和各有关职能单位提供执政参考，促进县域治理及经济发展，助推全国县域全面实现小康目标“最后一公里”，
             弘扬县域治理先进，塑造特色县域品牌和提升县域发展 的社会综合形象。中国县域发展榜将每年发布<span style={{ color: '#1e4ae2' }}>52个专项主题榜单</span>。
             每个榜单均涵盖全国所有县域行政单位,实现全域覆盖排榜，并通过《小康》杂志重点发布公示<span style={{ color: '#1e4ae2' }}>前100位上榜县域</span>，
-            称为“<span style={{ color: '#1e4ae2' }}>百县榜</span>”  <span style={{ color: '#1e4ae2' }}><a href="https://www.clgnews.com/#/appDetail">查看更多</a></span>
+            称为“<span style={{ color: '#1e4ae2' }}>百县榜</span>”  <span style={{ color: '#1e4ae2' }}><a href="#/appDetail">查看更多</a></span>
             </div>
           </div>
           <div className="main-content">
