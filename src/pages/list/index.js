@@ -35,6 +35,7 @@ export default class Index extends Component {
     axios.get(getCompleteApi(pageUrlObj[this.props.match.params.type]))
     .then(res => {
       if (res.status === 200) {
+
         this.setState({ data: res.data && res.data.newsList ? res.data.newsList : [] });
       } else {
         this.setState({ data: []})
@@ -51,21 +52,9 @@ export default class Index extends Component {
     return (
       <div className="page-content">
         <Intro menus={[]} bgUrl={banner_04} title={pageTypeObj[this.state.type]} desc="" />
-          {/* <Row>
-            <Col span={24}>
-              <Breadcrumb separator=">">
-                <Breadcrumb.Item>
-                  <Link to="/">首页</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <Link to="#">{pageTypeObj[this.state.type]}</Link>
-                </Breadcrumb.Item>
-              </Breadcrumb>
-            </Col>
-          </Row> */}
         <div className="link-parent" >
           <List>
-            {!this.state.data.length ? this.state.data.map(item => 
+            {this.state.data.length ? this.state.data.map(item => 
               <List.Item arrow="empty" wrap>
                 <Link className="link-box" key={item._id} to={`/detail/${item._id}?type=${this.state.type}`} >
                   <div className="link-item link-item-title">{item.title}</div>
