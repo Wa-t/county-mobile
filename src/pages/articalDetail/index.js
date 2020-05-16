@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, Empty } from 'antd';
-import Banner from '../../component/Banner';
+import { Empty } from 'antd';
+import Intro from '../../component/Intro';
 import banner_04 from '../../assets/images/banner_04.png';
 import axios from "axios";
-import './index.less';
 import moment from 'moment'
 import { getUrlParams, getCompleteApi } from '../../utils'
+import './index.less';
 
 const isEmptyObj = (obj) => !Object.keys(obj).length
 
@@ -53,14 +53,8 @@ export default class Detail extends Component {
 
     // console.log(lastData)
     return (
-      <Row className="channel-container">
-        <Row>
-          <Col span={24}>
-            {/* <Banner backgroundImage={banner_04} title="关于郡县" desc="县域赋能产品中心" /> */}
-            <Banner backgroundImage={banner_04} title="&nbsp;" desc="" />
-          </Col>
-        </Row>
-        <Row>
+      <div className="page-content">
+        <Intro menus={[]} bgUrl={banner_04} title="" desc="" />
           <div className="article">
 
             {!noData ? (
@@ -71,20 +65,18 @@ export default class Detail extends Component {
               </>) : <Empty style={{ minHeight: 300 }} description="暂无数据" />
             }
             {lastData.px10 ? (
-              <div id="px10" style={{ textAlign: 'center', height: 800 }}>
+              <div id="px10" className="px10">
                 <img
-                  // id="px10"
                   style={{ width: '100%' }}
                   className="img" src={lastData.px10.split('?')[0]} alt="" />
               </div>
             ) : null}
             {lastData.px100 ? (
-              <div id="px100" className="img" style={{ textAlign: 'center', height: 1500 }} >
+              <div id="px100" className="img px100" >
                 <img style={{ width: '100%' }} src={lastData.px100.split('?')[0]} alt="" />
               </div>) : null}
           </div>
-        </Row>
-      </Row>
+      </div>
     );
   }
 }
