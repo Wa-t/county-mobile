@@ -14,7 +14,7 @@ export default class About extends Component {
   componentDidMount() {
     window.onresize = () => {
       if (!checkFull()) {
-        alert('11');
+        // alert('11');
       }
     };
   }
