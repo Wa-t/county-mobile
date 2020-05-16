@@ -33,8 +33,8 @@ const videos = [
   },
   {
     id: 5,
-    src: 'https://cdn.clgnews.com/video/cf.mp4',
-    title: '从修摩托车到年售20吨野山菌',
+    src: 'https://cdn.clgnews.com/video/site.mp4',
+    title: '首页',
     desc: '曹永利的创业故事',
     time: 1583047607600,
     tagList: ['县域专栏']

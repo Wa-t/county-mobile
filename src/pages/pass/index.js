@@ -6,22 +6,15 @@ import Intro from '../../component/Intro';
 
 import './index.less';
 import entry_01 from '../../assets/images/entry_01.png';
+import jxh from '../../assets/images/jxh18.png'
+import bgMap from '../../assets/images/bg-map.png'
 import { passMenus } from './passMenus';
 
 export default class Pass extends Component {
   state = {
     showMore: false
   }
-  handleEnter = (e) => {
-    // 预检测初始化放大的 menu
-    if (document.querySelector('.pass-menu-item:nth-child(8)').hasAttribute('class', 'pass-menu-active')) {
-      document.querySelector('.pass-menu-item:nth-child(8)').classList.remove('pass-menu-active');
-    }
-    e.currentTarget.classList.add('pass-menu-active');
-  }
-  handleLeave = (e) => {
-    e.currentTarget.classList.remove('pass-menu-active');
-  }
+
   showMore() {
     this.setState({
       showMore: !this.state.showMore
@@ -43,13 +36,21 @@ export default class Pass extends Component {
   }
   renderNavModule() {
     return (
-      <div className="pass-content-container">
+      <div className="pass-content-container"
+        style={{
+          backgroundImage: `url(${bgMap})`
+        }}
+      >
         <div className="pass-nav-module">
           {this.renderModuleMenu()}
           <div className="module-content">
-            <div className="videoWrap">
-
-            </div>
+            <img alt="" src={jxh}
+              // width="100"
+              // height="100"
+              style={{
+                width: '80%'
+              }}
+            />
           </div>
         </div>
       </div>
