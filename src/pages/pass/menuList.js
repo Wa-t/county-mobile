@@ -16,19 +16,19 @@ const menus = [
   },
   {
     id: 4,
-    title: '政云桥',
+    title: '郡县云桥',
     path: '/meeting?tag=政云桥'
   },
   {
     id: 5,
-    title: '微讯社',
-    path: '/meeting?tag=微讯社'
+    title: '小康优选',
+    path: '/meeting?tag=小康优选'
   },
   {
     id: 6,
-    title: '小康优选',
-    path: '/meeting?tag=小康优选'
-  }
+    title: '微讯社',
+    path: '/meeting?tag=微讯社'
+  },
 ]
 
 export {
