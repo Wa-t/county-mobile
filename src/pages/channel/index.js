@@ -1,72 +1,122 @@
 import React, { Component } from 'react';
-import { Flex, Carousel } from 'antd-mobile';
-import Header from '../../component/Header';
+import { Flex } from 'antd-mobile';
+import { connect } from 'react-redux';
 import banner from '../../assets/images/banner_03.png';
 import Intro from '../../component/Intro';
-import Copyright from '../../component/Copyright';
-import topicList from './topicList';
-import { menus } from './menuList';
+import { videos } from './videos';
+import { menus } from './menus';
 import { getUrlParams } from '../../utils'
 import './index.less';
 
-export default class Channel extends Component {
+
+class Channel extends Component {
   state = {
-    data: ['1', '2', '3'],
-    imgHeight: 210,
+    imgHeight: 130,
+    nowSelected: null,
+    data: videos,
   }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.searchText !== this.props.searchText) {
+      this.queryData()
+    }
+    console.log(prevProps.searchText, this.props.searchText)
+  }
+
+  onSelect = (title) => {
+    const { nowSelected } = this.state;
+    this.setState({
+      nowSelected: nowSelected === title ? null : title
+    }, this.queryData)
+  }
+
+  queryData = () => {
+    const { searchText } = this.props;
+    const { nowSelected } = this.state;
+
+
+    const matchTagData = videos.filter(ele => {
+      if (nowSelected) {
+        return ele.tagList.includes(nowSelected);
+      } else {
+        return true
+      }
+    });
+
+
+    const matchTextData = matchTagData.filter(item => searchText ? item.title.indexOf(searchText) > -1 : true)
+
+    this.setState({
+      data: [...matchTextData]
+    })
+  }
+
+
   renderCarouselPanel() {
+    const { data } = this.state;
     return (
-      <Carousel
-        className="carousel-container"
-        style={{ "touchAction": "none" }}
-        autoplay={false}
-        infinite
-        beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-        afterChange={index => console.log('slide to', index)}
-      >
-        {this.state.data.map(val => (
-          <a
-            key={val}
+      <div className="videos">
+        {data.map((item, key) => (
+          <div
+            key={key}
             className="video-content"
-            href="http://www.alipay.com"
-            style={{ height: this.state.imgHeight }}
+            style={{
+              height: 160,
+              width: !key ? '100%' : '50%'
+            }}
           >
-            <h4 className="title right">{'县域联播'}</h4>
+            <div className="vidio-top">
+              {item.tagList.map(ele => (<h4 key={ele} className="title right">{ele}</h4>))}
+            </div>
             <video
-              style={{ width: '100%', height: '100%', background: '#000', verticalAlign: 'top' }}
+
+              style={{
+                width: '100%',
+                height: '100%',
+                background: '#000',
+                verticalAlign: 'top'
+              }}
               controls
-              controlsList="noremote footbar nodownload noremoteplayback"
+              controlsList="noremote  nodownload noremoteplayback"
+              poster=""
               disablePictureInPicture={true}
               id="banner-video"
               loop="loop"
             >
-              <source src='https://cdn.clgnews.com/video/site.mp4' type="video/mp4" />
+              <source src={item.src} type="video/mp4" />
               您的浏览器不支持播放视频
             </video>
-          </a>
-        ))}
-      </Carousel>
+          </div>
+        ))
+        }
+      </div>
+    )
+  }
+
+  renderMenus = () => {
+    const { nowSelected } = this.state;
+    return (
+      <div className="channel-menus">
+        {
+          menus.map((item) => (
+            <div key={item.id} className="channel-menusItem" onClick={() => this.onSelect(item.title)}>
+              <div className={nowSelected === item.title ? 'selected imgOut' : 'imgOut'}>
+                <img src={item.icon} alt="" />
+              </div>
+              <div>{item.title}</div>
+            </div>
+          ))
+        }
+      </div>
     )
   }
 
   renderTopic() {
-    const params = getUrlParams();
-    const { tag } = params;
-    const list = tag ? [...topicList, ...topicList] : topicList
-    return (
-      <ul className="topic-list">
-        {
-          list.map((topic, index) => {
-            return (
-              <li key={index}>
-                <h4 className={`title ${index % 2 === 0 ? 'left' : 'right'}`}>{tag || topic.title}</h4>
-                <img src={topic.image} alt={topic.title} />
-              </li>
-            )
-          })
-        }
-      </ul>
-    )
+
   }
 
   render() {
@@ -77,15 +127,18 @@ export default class Channel extends Component {
         direction="column"
         align="stretch"
       >
-        {/* <Header /> */}
         <div className="page-content">
-          <Intro menus={menus} bgUrl={banner} title="郡县号" desc="县域民生视频引擎" />
+          <Intro bgUrl={banner} title="郡县号" desc="县域民生视频引擎" />
+          {this.renderMenus()}
           <div className="channel-content">
-            {!tag ? this.renderCarouselPanel() : ''}
-            {this.renderTopic()}
+            {this.renderCarouselPanel()}
+            {/* {this.renderTopic()} */}
           </div>
         </div>
       </Flex >
     )
   }
 };
+
+
+export default connect((state) => ({ searchText: state.searchParamReuducer.searchText }))((Channel))
