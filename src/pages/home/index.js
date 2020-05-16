@@ -48,7 +48,7 @@ export default class HomePage extends Component {
             <div>产品中心</div>
           </div>
         ),
-        path: '/pass'
+        path: '/tong'
       },
      ],
      [
