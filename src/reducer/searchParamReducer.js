@@ -1,15 +1,9 @@
 const initialState = {
-  loading: false,
-  videos: []
+  searchText: ''
 };
 
 const channelReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_VIDEOS":
-      return {
-        ...state,
-        videos: action.payload || [],
-      };
     case "UPDATE_STATE": {
       return {
         ...state,
