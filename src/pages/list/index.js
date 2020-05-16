@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Breadcrumb, Empty } from 'antd';
+import { Row, Empty } from 'antd';
+import { List } from 'antd-mobile';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import axios from "axios";
-import Banner from '../../component/Banner';
+import Intro from '../../component/Intro';
 import banner_04 from '../../assets/images/banner_04.png';
 import { getCompleteApi } from '../../utils'
 import './index.less';
@@ -48,32 +49,33 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Row key={this.props.match.params.type} className="channel-container">
-        <Row>
-          <Col span={24}>
-            {/* <Banner backgroundImage={banner_04} title="客服中心" desc="县域赋能产品中心" /> */}
-            <Banner backgroundImage={banner_04} title={pageTypeObj[this.state.type]} desc="" />
-          </Col>
-          <Col span={24}>
-            <Breadcrumb separator=">">
-              <Breadcrumb.Item>
-                <Link to="/">首页</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Link to="#">{pageTypeObj[this.state.type]}</Link>
-              </Breadcrumb.Item>
-            </Breadcrumb>
-          </Col>
-        </Row>
+      <div className="page-content">
+        <Intro menus={[]} bgUrl={banner_04} title={pageTypeObj[this.state.type]} desc="" />
+          {/* <Row>
+            <Col span={24}>
+              <Breadcrumb separator=">">
+                <Breadcrumb.Item>
+                  <Link to="/">首页</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to="#">{pageTypeObj[this.state.type]}</Link>
+                </Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+          </Row> */}
         <div className="link-parent" >
-          {this.state.data.length ? this.state.data.map(item => 
-            <Link className="link-box" key={item._id} to={`/detail/${item._id}?type=${this.state.type}`} >
-              <div className="link-item link-item-title">{item.title}</div>
-              <div className="link-item link-item-date">{moment(item.publishDate || item.publish).format('YYYY-MM-DD')}</div>
-            </Link>
-          ) : <Empty style={{ minHeight: 300 }} description="暂无数据"/>}
+          <List>
+            {this.state.data.length ? this.state.data.map(item => 
+              <List.Item arrow="empty" wrap>
+                <Link className="link-box" key={item._id} to={`/detail/${item._id}?type=${this.state.type}`} >
+                  <div className="link-item link-item-title">{item.title}</div>
+                  <List.Item.Brief><div className="link-item link-item-date">{moment(item.publishDate || item.publish).format('YYYY-MM-DD')}</div></List.Item.Brief>
+                </Link>
+              </List.Item>
+            ) : <Empty style={{ minHeight: 300 }} description="暂无数据"/>}
+          </List>
         </div>
-      </Row>
+      </div>
     );
   }
 }

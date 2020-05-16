@@ -68,6 +68,20 @@ class Hundred extends Component {
     })
   }
 
+  onToGuanming = (data) => {
+    const { guanming } = data;
+    if (!guanming) {
+      Toast.info('敬请期待！', 1);
+    }
+  }
+
+  onToReport = (data) => {
+    const { report } = data;
+    if (!report) {
+      Toast.info('敬请期待！', 1);
+    }
+  }
+
 
   renderSelecting() {
     const { loading } = this.props;
@@ -87,7 +101,7 @@ class Hundred extends Component {
                   <div >发布时间：{item.date}</div>
                 </div>
                 <div className="right">
-                  <div>我要投票</div>
+                  <div><a href={decodeURIComponent(item.link)}>我要投票</a></div>
                 </div>
               </li>
             )
@@ -249,7 +263,7 @@ class Hundred extends Component {
             创建中国2856个县域发展的综合测评体系，旨在为县域政务管 理者和各有关职能单位提供执政参考，促进县域治理及经济发展，助推全国县域全面实现小康目标“最后一公里”，
             弘扬县域治理先进，塑造特色县域品牌和提升县域发展 的社会综合形象。中国县域发展榜将每年发布<span style={{ color: '#1e4ae2' }}>52个专项主题榜单</span>。
             每个榜单均涵盖全国所有县域行政单位,实现全域覆盖排榜，并通过《小康》杂志重点发布公示<span style={{ color: '#1e4ae2' }}>前100位上榜县域</span>，
-            称为“<span style={{ color: '#1e4ae2' }}>百县榜</span>”  <span style={{ color: '#1e4ae2' }}><a href="">查看更多</a></span>
+            称为“<span style={{ color: '#1e4ae2' }}>百县榜</span>”  <span style={{ color: '#1e4ae2' }}><a href="https://www.clgnews.com/#/appDetail">查看更多</a></span>
             </div>
           </div>
           <div className="main-content">

@@ -192,9 +192,7 @@ class Header extends Component {
           </div>
         </div>
         <div className="header-slogan">
-          <Link to='/'>
-            <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
-          </Link>
+        <img className="logo" src={icon} alt="logo" onClick={this.onLinkToHome} />
 
           {/* </Link> */}
           <div className="search-bar">
