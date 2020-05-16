@@ -42,7 +42,7 @@ export default class Index extends Component {
           </div>
           <div className="divider" />
         </div>
-        <div>
+        <div className="article">
           <div className="page-title">联系我们</div>
           <div className="contact-item label" >中国县域发展榜课题组邮箱：</div>
           <div className="contact-item" >
