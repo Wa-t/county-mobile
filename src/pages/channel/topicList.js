@@ -4,7 +4,7 @@ import bg3 from '../../assets/images/bg3.jpg'
 
 const topicList = [
     {
-        title: '郡县专题',
+        title: '',
         image: bg1,
         href: '/'
     },

@@ -1,50 +1,87 @@
-.page-content {
-  .channel-content{
-    border-radius: 0;
-    .topic-list{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      column-gap: 4px;
-      row-gap: 4px;
-      li{
-        position: relative;
-        height: 120px;
-        img{
-          width: 100%;
-          height: 100%;
-        }
-        
-      }
+.channel-menus {
+  display: flex;
+  justify-content: space-around;
+
+  .channel-menusItem {
+    width: 15%;
+    font-size: 12px;
+    text-align: center;
+
+    .imgOut {
+      padding: 3px;
+      border-radius: 100%;
     }
-    
-    .video-content{
-      position: relative;
-      display: inline-block;
+
+    .selected {
+      border: 1px solid #01216b;
+    }
+
+    img {
       width: 100%;
-      h4{
-        position: absolute;
-        top: 20px;
-        right: 20px;
+    }
+
+  }
+}
+
+
+
+
+
+.page-content {
+  .channel-content {
+    border-radius: 0;
+    margin: 20px 5px;
+
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+
+      .isFirstVidio {}
+
+      .video-content {
+        position: relative;
+        width: 50%;
+        padding: 3px;
+
+        .vidio-top {
+          position: absolute;
+          width: 100%;
+          height: 40px;
+          padding: 3px 8px;
+          display: flex;
+          margin-right: 3px;
+          justify-content: flex-end;
+
+          .title {
+            padding: 2px 4px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            margin-left: 5px;
+            width: fit-content;
+          }
+
+          h4 {
+
+            top: 20px;
+            right: 20px;
+          }
+        }
+
+
       }
-    }
-    .title {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 5px;
-      font-size: 14px;
-      color: #fff;
-      background: transparent;
-      border: 2px solid #fff;
-      // opacity: .8;
-      position: absolute;
-      top: 12px;
-    }
-    .left {
-      left: 12px
-    }
-    .right {
-      right: 12px
+
+
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        right: 12px
+      }
     }
   }
 }

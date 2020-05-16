@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Drawer, Accordion, List, Button, Icon, InputItem } from 'antd-mobile';
 import logo from '../../assets/images/logo.png';
-import qrcode from '../../assets/images/qrcode.png';
-import slogan from '../../assets/images/icon-slogan.gif';
 import { Link } from 'react-router-dom'
 import firstMenu from '../../assets/images/firstMenu.png';
 import secondMenu from '../../assets/images/secondMenu.png';
 
+import * as acitons from '../../actions/search'
 
 import './index.less';
 
@@ -69,18 +69,19 @@ const menu = [
 class Header extends Component {
   state = {
     open: false,
-    nowPage: ''
+    nowPage: '',
   }
 
   componentDidMount() {
-    console.log('ggggggggggg')
     const { location } = this.props;
     const { pathname } = location;
     this.setState({
-      nowPage: pathname
+      nowPage: pathname,
     })
     this.autoFocusInst.focus()
   }
+
+
 
   onSelect = (item) => {
     const { path } = item;
@@ -95,6 +96,12 @@ class Header extends Component {
     } else {
       this.props.history.push(path)
     }
+  }
+
+  onChange = (value) => {
+    this.setState({
+      value: value
+    })
   }
 
   onOpenChange = (...args) => {
@@ -153,13 +160,13 @@ class Header extends Component {
     )
   }
 
-  onSearch = (e) => {
-    const { nowPage } = this.state;
-    const { onSearch, history } = this.props;
-    console.log(nowPage)
-    if (nowPage === 'channel') {
+  onSearch = () => {
+    const { nowPage, value } = this.state;
+    const { history, dispatch } = this.props;
+    dispatch(acitons.updateState({ searchText: value }))
+    if (nowPage === '/channel') {
       history.push('/channel')
-    } else if (nowPage === 'pass') {
+    } else if (nowPage === '/pass') {
       history.push(`/${nowPage}`)
     } else {
       history.push(`/pass`)
@@ -190,10 +197,12 @@ class Header extends Component {
           {/* </Link> */}
           <div className="search-bar">
             <InputItem
-              clear placeholder={nowPage !== 'channel' ? '郡县通内容查询' : '郡县号内容查询'}
+              onChange={this.onChange}
+              clear placeholder={nowPage !== '/channel' ? '郡县通内容查询' : '郡县号内容查询'}
               ref={el => (this.autoFocusInst = el)}
               extra={<Icon type="search" size="md" />}
               onExtraClick={this.onSearch}
+              onVirtualKeyboardConfirm={this.onSearch}
             />
           </div>
           <Button className="menu-btn" onClick={this.onOpenChange}>
@@ -216,4 +225,5 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+export default connect((state) => ({ searchText: state }))(withRouter(Header))
+

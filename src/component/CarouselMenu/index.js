@@ -9,7 +9,9 @@ export default class CarouselMenu extends Component {
     totalPageNum: 0,
   };
   componentDidMount() {
+
     const { perPageCount = 6, menus = [] } = this.props;
+    console.log(menus)
     this.setState({
       totalPageNum: menus.length && Math.ceil(menus.length / perPageCount),
     });
@@ -44,29 +46,29 @@ export default class CarouselMenu extends Component {
     // this.setState({totalPageNum});
     return menusArr.length
       ? menusArr.map((data, i) => (
-          <List
-            key={i}
-            itemLayout="horizontal"
-            grid={{ gutter: 16, column: perPageCount }}
-            dataSource={data}
-            renderItem={item => (
-              <List.Item>
-                <Card hoverable cover={<div className="cover-image" style={{ backgroundImage: `url(${item.icon})` }}></div>}>
-                  {/* {item.path ? (
+        <List
+          key={i}
+          itemLayout="horizontal"
+          grid={{ gutter: 16, column: perPageCount }}
+          dataSource={data}
+          renderItem={item => (
+            <List.Item>
+              <Card hoverable cover={<div className="cover-image" style={{ backgroundImage: `url(${item.icon})` }}></div>}>
+                {/* {item.path ? (
                     <NavLink to={item.path}>
                       <Button className="nav-menu-btn">{item.title}</Button>
                     </NavLink>
                   ) : (
                     <Button className="nav-menu-btn">{item.title}</Button>
                   )} */}
-                  <NavLink to={item.path || '/'}>
-                    <Button className="nav-menu-btn">{item.title}</Button>
-                  </NavLink>
-                </Card>
-              </List.Item>
-            )}
-          ></List>
-        ))
+                <NavLink to={item.path || '/'}>
+                  <Button className="nav-menu-btn">{item.title}</Button>
+                </NavLink>
+              </Card>
+            </List.Item>
+          )}
+        ></List>
+      ))
       : null;
   }
   render() {
