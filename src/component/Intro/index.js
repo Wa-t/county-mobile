@@ -14,7 +14,7 @@ class Intro extends Component {
         <span className="desc">{desc}</span>
         <span className="title">{title}</span>
         <ul className="menu-list">
-          {menus.map(menu => (
+          { menus.map(menu => (
             <li key={menu.id}>
               <a href={menu.url} onClick={(e) => {
                 if(menu.path) {

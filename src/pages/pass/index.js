@@ -93,7 +93,6 @@ export default class Pass extends Component {
             <div>"郡县通"平台是面向县域推出的数字资讯技术产品服务平台。“郡县通”产品和服务包括：政会通智能会务系统、政网哨舆情预警系统、政讯报郡县政务参考、微讯社郡县新闻资讯门户、圆点直播政经民生视频直播、卡乐图片原创图像影音数据库、郡县云桥县域融媒采集编播系统等，更多产品与服务，将顺应县域政务发展需求而继续推出。</div>
           </div>
           {this.renderNavModule()}
-          <Copyright />
         </div>
       </Flex>
     )

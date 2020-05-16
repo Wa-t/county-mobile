@@ -9,18 +9,6 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer-container">
-        <div className="footer-menu">
-          {/* <Link to='http://baidu.com'>关于我们</Link> */}
-          <Button.Group>
-            {footerMenu.map(menu => (
-              <Button type="primary" key={menu.id} href={menu.address} target="_blank" ghost>
-                {menu.name}
-              </Button>
-            ))}
-          </Button.Group>
-        </div>
-        <LinkGroup title={friendlyLink.groupName} links={friendlyLink.sites} />
-        <LinkGroup title={mediaPartners.groupName} links={mediaPartners.sites} />
         <Copyright />
       </div>
     );

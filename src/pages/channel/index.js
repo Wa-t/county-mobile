@@ -98,7 +98,6 @@ export default class Channel extends Component {
             {!tag ? this.renderCarouselPanel() : ''}
             {this.renderTopic()}
           </div>
-          <Copyright />
         </div>
       </Flex>
     )
