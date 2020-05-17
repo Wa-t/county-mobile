@@ -45,7 +45,7 @@ const videos = [
   {
     id: 5,
     src: 'https://cdn.clgnews.com/video/site.mp4',
-    title: '首页',
+    title: '中国县域发展榜介绍',
     desc: '曹永利的创业故事',
     time: 1583047607600,
     poster: vd0,
