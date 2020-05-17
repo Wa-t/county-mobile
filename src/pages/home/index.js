@@ -142,6 +142,7 @@ export default class HomePage extends Component {
         disablePictureInPicture={true}
         id="banner-video"
         poster={vd0}
+        x5-video-player-type="h5"
         loop="loop"
       >
         <source src='https://cdn.clgnews.com/video/site.mp4' type="video/mp4" />

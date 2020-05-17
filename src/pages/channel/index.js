@@ -18,18 +18,20 @@ class Channel extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    const { nowSelected } = getUrlParams();
+    console.log(nowSelected, 'gggggggggg')
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.searchText !== this.props.searchText) {
       this.queryData()
     }
-    console.log(prevProps.searchText, this.props.searchText)
   }
 
   onSelect = (title) => {
     const { nowSelected } = this.state;
+    console.log(this.props.history.location.href);
+    this.props.history.replace(`/channel?nowSelected=${title}`);
     this.setState({
       nowSelected: nowSelected === title ? null : title
     }, this.queryData)
@@ -38,8 +40,6 @@ class Channel extends Component {
   queryData = () => {
     const { searchText } = this.props;
     const { nowSelected } = this.state;
-
-
     const matchTagData = videos.filter(ele => {
       if (nowSelected) {
         return ele.tagList.includes(nowSelected);
@@ -69,7 +69,7 @@ class Channel extends Component {
             key={key}
             className="video-content"
             style={{
-              height: 160,
+              // height: 160,
               width: !key ? '100%' : '50%'
             }}
           >
@@ -80,16 +80,16 @@ class Channel extends Component {
 
               style={{
                 width: '100%',
-                height: '100%',
-                background: '#000',
-                verticalAlign: 'top'
+                // maxHeight: 150,
+                // background: '#000',
+                // verticalAlign: 'top'
               }}
               controls
               controlsList="noremote  nodownload noremoteplayback"
               disablePictureInPicture={true}
               id="banner-video"
               // x-webkit-airplay="allow"
-              x5-video-player-type="h5"
+              // x5-video-player-type="h5"
               // x5-playsinline
               // webkit-playsinline playsinline
               poster={item.poster}
@@ -97,8 +97,12 @@ class Channel extends Component {
 
             >
               <source src={item.src} type="video/mp4" />
+
               您的浏览器不支持播放视频
             </video>
+            <div className="channel-footer">
+              {item.title}
+            </div>
           </div>
         ))
         }
