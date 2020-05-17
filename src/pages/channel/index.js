@@ -19,7 +19,6 @@ class Channel extends Component {
 
   componentDidMount() {
     const { nowSelected } = getUrlParams();
-    console.log(nowSelected, 'gggggggggg')
   }
 
   componentDidUpdate(prevProps) {
@@ -31,7 +30,6 @@ class Channel extends Component {
   onSelect = (title) => {
     const { nowSelected } = this.state;
     console.log(this.props.history.location.href);
-    this.props.history.replace(`/channel?nowSelected=${title}`);
     this.setState({
       nowSelected: nowSelected === title ? null : title
     }, this.queryData)
@@ -96,7 +94,7 @@ class Channel extends Component {
               loop="loop"
 
             >
-              <source src={item.src} type="video/mp4" />
+              <source key={key} src={item.src} type="video/mp4" />
 
               您的浏览器不支持播放视频
             </video>
