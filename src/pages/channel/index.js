@@ -64,7 +64,7 @@ class Channel extends Component {
       <div className="videos">
         {data.map((item, key) => (
           <div
-            key={key}
+            key={`${item.title}`}
             className="video-content"
             style={{
               // height: 160,
